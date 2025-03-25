@@ -1,4 +1,3 @@
-// app/[lang]/image-tools/resize/resize-tool.tsx
 "use client"
 import React, { useState } from "react";
 import { ImageProcessor } from "@/components/image-processor";
@@ -61,13 +60,13 @@ export function ResizeImageTool() {
     <div className="space-y-6">
       {originalDimensions && (
         <div className="text-sm text-muted-foreground mb-4">
-          Original dimensions: {originalDimensions.width} × {originalDimensions.height} pixels
+          {t("imageTools.resize.originalDimensions") || "Original dimensions"}: {originalDimensions.width} × {originalDimensions.height} {t("imageTools.resize.pixels") || "pixels"}
         </div>
       )}
       
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="width">Width (px)</Label>
+          <Label htmlFor="width">{t("imageTools.resize.width") || "Width"} (px)</Label>
           <Input
             id="width"
             type="number"
@@ -78,7 +77,7 @@ export function ResizeImageTool() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="height">Height (px)</Label>
+          <Label htmlFor="height">{t("imageTools.resize.height") || "Height"} (px)</Label>
           <Input
             id="height"
             type="number"
@@ -96,42 +95,42 @@ export function ResizeImageTool() {
           checked={maintainAspectRatio}
           onCheckedChange={setMaintainAspectRatio}
         />
-        <Label htmlFor="aspect-ratio">Maintain aspect ratio</Label>
+        <Label htmlFor="aspect-ratio">{t("imageTools.resize.maintainAspectRatio") || "Maintain aspect ratio"}</Label>
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="resize-method">Resize Method</Label>
+        <Label htmlFor="resize-method">{t("imageTools.resize.resizeMethod") || "Resize Method"}</Label>
         <Select
           value={resizeMethod}
           onValueChange={setResizeMethod}
         >
           <SelectTrigger id="resize-method">
-            <SelectValue placeholder="Select resize method" />
+            <SelectValue placeholder={t("imageTools.resize.selectMethod") || "Select resize method"} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="fit">Fit (Preserve aspect ratio)</SelectItem>
-            <SelectItem value="fill">Fill (Stretch to dimensions)</SelectItem>
-            <SelectItem value="cover">Cover (Crop to fill)</SelectItem>
+            <SelectItem value="fit">{t("imageTools.resize.fitMethod") || "Fit (Preserve aspect ratio)"}</SelectItem>
+            <SelectItem value="fill">{t("imageTools.resize.fillMethod") || "Fill (Stretch to dimensions)"}</SelectItem>
+            <SelectItem value="cover">{t("imageTools.resize.coverMethod") || "Cover (Crop to fill)"}</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-xs text-muted-foreground">
           {resizeMethod === "fit" 
-            ? "Fit: Resizes the image to fit within the specified dimensions while maintaining the aspect ratio." 
+            ? t("imageTools.resize.fitDescription") || "Fit: Resizes the image to fit within the specified dimensions while maintaining the aspect ratio."
             : resizeMethod === "fill" 
-              ? "Fill: Stretches the image to exactly match the specified dimensions, which may distort the image."
-              : "Cover: Resizes and crops the image to cover the specified dimensions while maintaining the aspect ratio."}
+              ? t("imageTools.resize.fillDescription") || "Fill: Stretches the image to exactly match the specified dimensions, which may distort the image."
+              : t("imageTools.resize.coverDescription") || "Cover: Resizes and crops the image to cover the specified dimensions while maintaining the aspect ratio."}
         </p>
       </div>
       
       <div className="space-y-2">
-        <Label>Common Sizes</Label>
+        <Label>{t("imageTools.resize.commonSizes") || "Common Sizes"}</Label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <button
             type="button"
             className="px-3 py-2 border rounded-md text-xs hover:bg-muted transition-colors"
             onClick={() => setDimensions({ width: 1920, height: 1080 })}
           >
-            1920×1080 (Full HD)
+            1920×1080 ({t("imageTools.resize.fullHD") || "Full HD"})
           </button>
           <button
             type="button"
@@ -159,7 +158,7 @@ export function ResizeImageTool() {
             className="px-3 py-2 border rounded-md text-xs hover:bg-muted transition-colors"
             onClick={() => setDimensions({ width: 1080, height: 1080 })}
           >
-            1080×1080 (Instagram)
+            1080×1080 ({t("imageTools.resize.instagram") || "Instagram"})
           </button>
           <button
             type="button"
@@ -173,7 +172,7 @@ export function ResizeImageTool() {
               }
             }}
           >
-            50% of Original
+            {t("imageTools.resize.halfSize") || "50% of Original"}
           </button>
         </div>
       </div>
@@ -183,15 +182,15 @@ export function ResizeImageTool() {
   return (
     <div>
       <div className="mx-auto flex flex-col items-center text-center mb-8">
-        <h1 className="text-3xl font-bold">Resize Image</h1>
+        <h1 className="text-3xl font-bold">{t("imageTools.resize.title") || "Resize Image"}</h1>
         <p className="mt-2 text-muted-foreground">
-          Change the dimensions of your images while maintaining quality
+          {t("imageTools.resize.description") || "Change the dimensions of your images while maintaining quality"}
         </p>
       </div>
       
       <ImageProcessor
-        title="Image Resizer"
-        description="Upload an image to resize it to your desired dimensions."
+        title={t("imageTools.resize.toolTitle") || "Image Resizer"}
+        description={t("imageTools.resize.toolDescription") || "Upload an image to resize it to your desired dimensions."}
         processEndpoint="image/resize"
         fileTypes={["image/jpeg", "image/png", "image/gif", "image/webp"]}
         processOptions={{ 
@@ -206,56 +205,56 @@ export function ResizeImageTool() {
       
       <div className="mt-12 space-y-6">
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">Why Resize Images?</h2>
+          <h2 className="text-xl font-medium mb-4">{t("imageTools.resize.whyTitle") || "Why Resize Images?"}</h2>
           <div className="space-y-3">
             <p className="text-sm text-muted-foreground">
-              Resizing images is useful for many purposes:
+              {t("imageTools.resize.whyDescription") || "Resizing images is useful for many purposes:"}
             </p>
             <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-              <li>Reduce file size for web uploads and sharing</li>
-              <li>Fit images to specific dimensions for websites or social media</li>
-              <li>Create thumbnails for galleries or previews</li>
-              <li>Prepare images for printing at specific dimensions</li>
-              <li>Make images suitable for email attachments</li>
-              <li>Standardize dimensions in a collection of photos</li>
+              <li>{t("imageTools.resize.reason1") || "Reduce file size for web uploads and sharing"}</li>
+              <li>{t("imageTools.resize.reason2") || "Fit images to specific dimensions for websites or social media"}</li>
+              <li>{t("imageTools.resize.reason3") || "Create thumbnails for galleries or previews"}</li>
+              <li>{t("imageTools.resize.reason4") || "Prepare images for printing at specific dimensions"}</li>
+              <li>{t("imageTools.resize.reason5") || "Make images suitable for email attachments"}</li>
+              <li>{t("imageTools.resize.reason6") || "Standardize dimensions in a collection of photos"}</li>
             </ul>
           </div>
         </div>
         
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">Understanding Resize Methods</h2>
+          <h2 className="text-xl font-medium mb-4">{t("imageTools.resize.methodsTitle") || "Understanding Resize Methods"}</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="space-y-2">
-              <h3 className="text-base font-medium">Fit</h3>
+              <h3 className="text-base font-medium">{t("imageTools.resize.fitTitle") || "Fit"}</h3>
               <p className="text-sm text-muted-foreground">
-                Resizes the image to fit entirely within the specified dimensions while maintaining the original aspect ratio. This ensures the image isn't distorted, but may result in "letterboxing" (empty space on sides or top/bottom).
+                {t("imageTools.resize.fitExplanation") || "Resizes the image to fit entirely within the specified dimensions while maintaining the original aspect ratio. This ensures the image isn't distorted, but may result in \"letterboxing\" (empty space on sides or top/bottom)."}
               </p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-medium">Fill</h3>
+              <h3 className="text-base font-medium">{t("imageTools.resize.fillTitle") || "Fill"}</h3>
               <p className="text-sm text-muted-foreground">
-                Stretches or compresses the image to exactly match the specified dimensions. This method may distort the image if the target dimensions have a different aspect ratio than the original.
+                {t("imageTools.resize.fillExplanation") || "Stretches or compresses the image to exactly match the specified dimensions. This method may distort the image if the target dimensions have a different aspect ratio than the original."}
               </p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-medium">Cover</h3>
+              <h3 className="text-base font-medium">{t("imageTools.resize.coverTitle") || "Cover"}</h3>
               <p className="text-sm text-muted-foreground">
-                Resizes the image to cover the entire specified dimensions while maintaining the aspect ratio, and crops any excess parts. This ensures no empty space but may crop parts of the image.
+                {t("imageTools.resize.coverExplanation") || "Resizes the image to cover the entire specified dimensions while maintaining the aspect ratio, and crops any excess parts. This ensures no empty space but may crop parts of the image."}
               </p>
             </div>
           </div>
         </div>
         
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">Tips for Best Results</h2>
+          <h2 className="text-xl font-medium mb-4">{t("imageTools.resize.tipsTitle") || "Tips for Best Results"}</h2>
           <div className="space-y-3">
             <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-              <li>Maintain aspect ratio to prevent image distortion</li>
-              <li>It's better to reduce an image's size rather than enlarge it, as enlarging can cause quality loss</li>
-              <li>For web images, consider keeping file sizes under 200KB for optimal loading speeds</li>
-              <li>For printing, aim for at least 300 pixels per inch (PPI) for high-quality results</li>
-              <li>When in doubt about dimensions, use common sizes like 1920×1080 (Full HD) or 1280×720 (HD)</li>
-              <li>For social media platforms, check their recommended dimensions for optimal display</li>
+              <li>{t("imageTools.resize.tip1") || "Maintain aspect ratio to prevent image distortion"}</li>
+              <li>{t("imageTools.resize.tip2") || "It's better to reduce an image's size rather than enlarge it, as enlarging can cause quality loss"}</li>
+              <li>{t("imageTools.resize.tip3") || "For web images, consider keeping file sizes under 200KB for optimal loading speeds"}</li>
+              <li>{t("imageTools.resize.tip4") || "For printing, aim for at least 300 pixels per inch (PPI) for high-quality results"}</li>
+              <li>{t("imageTools.resize.tip5") || "When in doubt about dimensions, use common sizes like 1920×1080 (Full HD) or 1280×720 (HD)"}</li>
+              <li>{t("imageTools.resize.tip6") || "For social media platforms, check their recommended dimensions for optimal display"}</li>
             </ul>
           </div>
         </div>

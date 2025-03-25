@@ -68,6 +68,7 @@ export function ImageProcessor({
     maxSize: 50 * 1024 * 1024,
     maxFiles: 1,
     onDrop: (acceptedFiles, rejectedFiles) => {
+      
       if (rejectedFiles.length > 0) {
         const rejection = rejectedFiles[0];
         setError(rejection.file.size > 50 * 1024 * 1024 
@@ -96,6 +97,7 @@ export function ImageProcessor({
         optionsRef.current = JSON.stringify(processOptions);
         onImageLoaded?.(newFile);
         generatePreview();
+        
       }
     },
   });
@@ -168,7 +170,6 @@ export function ImageProcessor({
 
     setIsGeneratingPreview(true);
     setError(null);
-
     try {
       const renderer = previewRenderer || defaultPreviewRenderer;
       const oldUrl = processedPreviewUrl;

@@ -353,261 +353,262 @@ export function Homepage() {
   };
 
   // Features list for the Features section
-  const features = [
-    {
-      icon: <Sparkles className="h-7 w-7 text-primary" />,
-      title: "Easy to Use",
-      description: "Our intuitive interface makes image editing simple - no design skills required."
-    },
-    {
-      icon: <CloudOff className="h-7 w-7 text-primary" />,
-      title: "Privacy First",
-      description: "Your images are processed in your browser. We don't store or share your files."
-    },
-    {
-      icon: <Download className="h-7 w-7 text-primary" />,
-      title: "Fast Processing",
-      description: "Advanced algorithms ensure quick processing even for large images."
-    },
-    {
-      icon: <Image className="h-7 w-7 text-primary" />,
-      title: "High Quality Results",
-      description: "Get professional-quality image editing without quality loss."
-    }
-  ];
+ // Features list for the Features section
+const features = [
+  {
+    icon: <Sparkles className="h-7 w-7 text-primary" />,
+    title: t("features.easyToUse.title") || "Easy to Use",
+    description: t("features.easyToUse.description") || "Our intuitive interface makes image editing simple - no design skills required."
+  },
+  {
+    icon: <CloudOff className="h-7 w-7 text-primary" />,
+    title: t("features.privacyFirst.title") || "Privacy First",
+    description: t("features.privacyFirst.description") || "Your images are processed in your browser. We don't store or share your files."
+  },
+  {
+    icon: <Download className="h-7 w-7 text-primary" />,
+    title: t("features.fastProcessing.title") || "Fast Processing",
+    description: t("features.fastProcessing.description") || "Advanced algorithms ensure quick processing even for large images."
+  },
+  {
+    icon: <Image className="h-7 w-7 text-primary" />,
+    title: t("features.highQuality.title") || "High Quality Results",
+    description: t("features.highQuality.description") || "Get professional-quality image editing without quality loss."
+  }
+];
 
-  // How it works steps
-  const steps = [
-    {
-      number: "01",
-      title: "Choose a Tool",
-      description: "Select the image tool you need from our wide range of options."
-    },
-    {
-      number: "02",
-      title: "Upload Your Image",
-      description: "Upload the image you want to process. We support PNG, JPG, WebP and SVG files."
-    },
-    {
-      number: "03",
-      title: "Adjust Settings",
-      description: "Customize the tool settings according to your specific needs."
-    },
-    {
-      number: "04",
-      title: "Download Result",
-      description: "Process your image and download the result with a single click."
-    }
-  ];
+// How it works steps
+const steps = [
+  {
+    number: "01",
+    title: t("steps.chooseTool.title") || "Choose a Tool",
+    description: t("steps.chooseTool.description") || "Select the image tool you need from our wide range of options."
+  },
+  {
+    number: "02",
+    title: t("steps.uploadImage.title") || "Upload Your Image",
+    description: t("steps.uploadImage.description") || "Upload the image you want to process. We support PNG, JPG, WebP and SVG files."
+  },
+  {
+    number: "03",
+    title: t("steps.adjustSettings.title") || "Adjust Settings",
+    description: t("steps.adjustSettings.description") || "Customize the tool settings according to your specific needs."
+  },
+  {
+    number: "04",
+    title: t("steps.downloadResult.title") || "Download Result",
+    description: t("steps.downloadResult.description") || "Process your image and download the result with a single click."
+  }
+];
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="py-16 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                Professional Image Tools, <br />
-                <span className="text-primary">Completely Free</span>
-              </h1>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Transform your images in seconds with our powerful online tools. No downloads required.
-              </p>
-            </div>
-            <div className="space-x-4">
-              <LanguageLink href="/image-tools">
-                <Button size="lg" className="font-medium">
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </LanguageLink>
-              <LanguageLink href="#features">
-                <Button variant="outline" size="lg" className="font-medium">
-                  Learn More
-                </Button>
-              </LanguageLink>
-            </div>
+    {/* Hero Section */}
+    <section className="py-16 md:py-24">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-4 text-center">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+              {t("hero.title") || "Professional Image Tools"}, <br />
+              <span className="text-primary">{t("hero.titleHighlight") || "Completely Free"}</span>
+            </h1>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+              {t("hero.description") || "Transform your images in seconds with our powerful online tools. No downloads required."}
+            </p>
+          </div>
+          <div className="space-x-4">
+            <LanguageLink href="/image-tools">
+              <Button size="lg" className="font-medium">
+                {t("hero.getStarted") || "Get Started"}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </LanguageLink>
+            <LanguageLink href="#features">
+              <Button variant="outline" size="lg" className="font-medium">
+                {t("hero.learnMore") || "Learn More"}
+              </Button>
+            </LanguageLink>
           </div>
         </div>
-      </section>
-
-      {/* Featured Tools Section */}
-      <section className="py-12 bg-muted/40">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Popular Image Tools
-              </h2>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
-                Transform your images for any project with our most-used tools.
-              </p>
-            </div>
+      </div>
+    </section>
+  
+    {/* Featured Tools Section */}
+    <section className="py-12 bg-muted/40">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-4 text-center">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              {t("featuredTools.title") || "Popular Image Tools"}
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
+              {t("featuredTools.description") || "Transform your images for any project with our most-used tools."}
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            {featuredTools.map((tool) => (
-              <LanguageLink key={tool.id} href={tool.href} className="block h-full">
-                <Card className="p-6 h-full transition-all duration-200 hover:shadow-md hover:-translate-y-1 flex flex-col justify-between">
-                  <div>
-                    <div className={`mb-4 p-2 w-fit rounded-lg bg-${tool.color}-100 dark:bg-${tool.color}-900/20`}>
-                      {tool.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{tool.name}</h3>
-                    <p className="text-gray-500 dark:text-gray-400">{tool.description}</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          {featuredTools.map((tool) => (
+            <LanguageLink key={tool.id} href={tool.href} className="block h-full">
+              <Card className="p-6 h-full transition-all duration-200 hover:shadow-md hover:-translate-y-1 flex flex-col justify-between">
+                <div>
+                  <div className={`mb-4 p-2 w-fit rounded-lg bg-${tool.color}-100 dark:bg-${tool.color}-900/20`}>
+                    {tool.icon}
                   </div>
-                  <Button variant="ghost" className="mt-4 justify-start px-0">
-                    Try Now <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Card>
-              </LanguageLink>
-            ))}
+                  <h3 className="text-xl font-bold mb-2">{tool.name}</h3>
+                  <p className="text-gray-500 dark:text-gray-400">{tool.description}</p>
+                </div>
+                <Button variant="ghost" className="mt-4 justify-start px-0">
+                  {t("ui.tryNow") || "Try Now"} <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Card>
+            </LanguageLink>
+          ))}
+        </div>
+      </div>
+    </section>
+  
+    {/* All Tools Section */}
+    <section className="py-16">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-4 text-center mb-8">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              {t("allTools.title") || "All Image Tools"}
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
+              {t("allTools.description") || "Explore our complete set of image processing and editing tools."}
+            </p>
           </div>
         </div>
-      </section>
-
-      {/* All Tools Section */}
-      <section className="py-16">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center mb-8">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                All Image Tools
-              </h2>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
-                Explore our complete set of image processing and editing tools.
-              </p>
-            </div>
+  
+        <Tabs defaultValue="popular" value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
+          <div className="flex justify-center mb-8">
+            <TabsList className="grid grid-cols-5 w-full max-w-2xl">
+              {toolCategories.map((category) => (
+                <TabsTrigger key={category.id} value={category.id} className="flex items-center gap-2">
+                  {category.icon}
+                  <span className="hidden sm:inline">{category.name}</span>
+                </TabsTrigger>
+              ))}
+            </TabsList>
           </div>
-
-          <Tabs defaultValue="popular" value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid grid-cols-5 w-full max-w-2xl">
-                {toolCategories.map((category) => (
-                  <TabsTrigger key={category.id} value={category.id} className="flex items-center gap-2">
-                    {category.icon}
-                    <span className="hidden sm:inline">{category.name}</span>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-
-            {Object.keys(allTools).map((category) => (
-              <TabsContent key={category} value={category} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {allTools[category]?.map((tool) => (
-                    <LanguageLink key={tool.id} href={tool.href} className="block h-full">
-                      <div className={`p-4 rounded-lg border border-${tool.color}-200/20 hover:border-${tool.color}-300/30 dark:border-${tool.color}-800/20 dark:hover:border-${tool.color}-700/30 transition-all duration-200 hover:shadow-sm h-full`}>
-                        <div className="flex items-center gap-3">
-                          <div className={`p-2 rounded-lg bg-${tool.color}-100 dark:bg-${tool.color}-900/20`}>
-                            {tool.icon}
+  
+          {Object.keys(allTools).map((category) => (
+            <TabsContent key={category} value={category} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {allTools[category]?.map((tool) => (
+                  <LanguageLink key={tool.id} href={tool.href} className="block h-full">
+                    <div className={`p-4 rounded-lg border border-${tool.color}-200/20 hover:border-${tool.color}-300/30 dark:border-${tool.color}-800/20 dark:hover:border-${tool.color}-700/30 transition-all duration-200 hover:shadow-sm h-full`}>
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-lg bg-${tool.color}-100 dark:bg-${tool.color}-900/20`}>
+                          {tool.icon}
+                        </div>
+                        <div>
+                          <div className="font-medium flex items-center">
+                            {tool.name}
+                            {tool.isNew && (
+                              <Badge variant="outline" className="ml-2 bg-primary/10 text-primary text-xs">
+                                {t("ui.new") || "NEW"}
+                              </Badge>
+                            )}
                           </div>
-                          <div>
-                            <div className="font-medium flex items-center">
-                              {tool.name}
-                              {tool.isNew && (
-                                <Badge variant="outline" className="ml-2 bg-primary/10 text-primary text-xs">
-                                  NEW
-                                </Badge>
-                              )}
-                            </div>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">
-                              {tool.description}
-                            </p>
-                          </div>
+                          <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">
+                            {tool.description}
+                          </p>
                         </div>
                       </div>
-                    </LanguageLink>
-                  ))}
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-16 bg-muted/40">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2 mb-8">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Why Choose Our Image Tools
-              </h2>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
-                Powerful tools that make image editing simple for everyone.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-            {features.map((feature, index) => (
-              <div key={index} className="flex flex-col items-center text-center space-y-2">
-                <div className="p-3 rounded-full bg-primary/10 mb-2">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold">{feature.title}</h3>
-                <p className="text-gray-500 dark:text-gray-400">{feature.description}</p>
+                    </div>
+                  </LanguageLink>
+                ))}
               </div>
-            ))}
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
+    </section>
+  
+    {/* Features Section */}
+    <section id="features" className="py-16 bg-muted/40">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-4 text-center">
+          <div className="space-y-2 mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              {t("features.title") || "Why Choose Our Image Tools"}
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
+              {t("features.description") || "Powerful tools that make image editing simple for everyone."}
+            </p>
           </div>
         </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-16">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2 mb-8">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                How It Works
-              </h2>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
-                Transform your images in just a few simple steps.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="flex flex-col items-center text-center space-y-2">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mb-4">
-                    {step.number}
-                  </div>
-                  <h3 className="text-xl font-bold">{step.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400">{step.description}</p>
-                </div>
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-primary/20" style={{ width: 'calc(100% - 3rem)', transform: 'translateX(1.5rem)' }}></div>
-                )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+          {features.map((feature, index) => (
+            <div key={index} className="flex flex-col items-center text-center space-y-2">
+              <div className="p-3 rounded-full bg-primary/10 mb-2">
+                {feature.icon}
               </div>
-            ))}
+              <h3 className="text-xl font-bold">{feature.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  
+    {/* How It Works Section */}
+    <section className="py-16">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-4 text-center">
+          <div className="space-y-2 mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              {t("howItWorks.title") || "How It Works"}
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
+              {t("howItWorks.description") || "Transform your images in just a few simple steps."}
+            </p>
           </div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-primary/10">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                Ready to Transform Your Images?
-              </h2>
-              <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
-                Start using our free image tools today - no registration required.
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+          {steps.map((step, index) => (
+            <div key={index} className="relative">
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold mb-4">
+                  {step.number}
+                </div>
+                <h3 className="text-xl font-bold">{step.title}</h3>
+                <p className="text-gray-500 dark:text-gray-400">{step.description}</p>
+              </div>
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-primary/20" style={{ width: 'calc(100% - 3rem)', transform: 'translateX(1.5rem)' }}></div>
+              )}
             </div>
-            <div className="space-x-4 mt-4">
-              <LanguageLink href="/image-tools">
-                <Button size="lg" className="font-medium">
-                  Get Started Now
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </LanguageLink>
-            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  
+    {/* CTA Section */}
+    <section className="py-16 bg-primary/10">
+      <div className="container px-4 md:px-6">
+        <div className="flex flex-col items-center space-y-4 text-center">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              {t("cta.title") || "Ready to Transform Your Images?"}
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-500 md:text-lg dark:text-gray-400">
+              {t("cta.description") || "Start using our free image tools today - no registration required."}
+            </p>
+          </div>
+          <div className="space-x-4 mt-4">
+            <LanguageLink href="/image-tools">
+              <Button size="lg" className="font-medium">
+                {t("cta.getStarted") || "Get Started Now"}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </LanguageLink>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+  </div>
   );
 }

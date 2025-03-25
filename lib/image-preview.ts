@@ -5,6 +5,7 @@
  * @param file Image file to load onto canvas
  * @returns Promise with the canvas element and context
  */
+
 async function createImageCanvas(file: File): Promise<{
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
@@ -111,6 +112,123 @@ export async function makeTransparentPreview(file: File, options: Record<string,
     }
 }
 
+/**
+ * Generates a preview for the background removal tool
+ * @param file Image file to process
+ * @param options Options for background removal
+ * @returns Promise with a data URL of the processed image
+ */
+export async function removeBackgroundPreview(file: File, options: Record<string, any>): Promise<string> {
+    try {
+        const { canvas, ctx, width, height } = await createImageCanvas(file);
+
+        // Extract options
+        const sensitivity = options.sensitivity || 50;
+        const detectionMode = options.detectionMode || 'auto';
+        const removeColor = options.removeColor || '#ffffff';
+
+        // Get image data
+        const imageData = ctx.getImageData(0, 0, width, height);
+        const data = imageData.data;
+
+        if (detectionMode === 'color') {
+            // Simple color-based background removal for preview
+            const targetColor = hexToRgb(removeColor);
+            const tolerance = Math.round((sensitivity / 100) * 150); // Map 0-100 to 0-150 range
+
+            if (targetColor) {
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i + 1];
+                    const b = data[i + 2];
+
+                    // Check if pixel color is within tolerance of target color
+                    if (
+                        Math.abs(r - targetColor.r) <= tolerance &&
+                        Math.abs(g - targetColor.g) <= tolerance &&
+                        Math.abs(b - targetColor.b) <= tolerance
+                    ) {
+                        data[i + 3] = 0; // Set alpha to 0 (transparent)
+                    }
+                }
+            }
+        } else if (detectionMode === 'subject' || detectionMode === 'auto') {
+            // For preview, use a simplified center-weighted approach for both modes
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
+
+            // Create a simple mask based on distance from center and edge detection
+            const edgeMap = new Uint8Array(width * height);
+
+            // Simplified edge detection (Sobel-like)
+            for (let y = 1; y < height - 1; y++) {
+                for (let x = 1; x < width - 1; x++) {
+                    // Current pixel position
+                    const pos = (y * width + x) * 4;
+
+                    // Neighbor positions
+                    const posLeft = ((y) * width + (x - 1)) * 4;
+                    const posRight = ((y) * width + (x + 1)) * 4;
+                    const posUp = ((y - 1) * width + (x)) * 4;
+                    const posDown = ((y + 1) * width + (x)) * 4;
+
+                    // Calculate edge strength using differences in each channel
+                    const diffX =
+                        Math.abs(data[pos] - data[posLeft]) +
+                        Math.abs(data[pos + 1] - data[posLeft + 1]) +
+                        Math.abs(data[pos + 2] - data[posLeft + 2]);
+
+                    const diffY =
+                        Math.abs(data[pos] - data[posUp]) +
+                        Math.abs(data[pos + 1] - data[posUp + 1]) +
+                        Math.abs(data[pos + 2] - data[posUp + 2]);
+
+                    const edge = Math.min(255, (diffX + diffY) / 2);
+                    edgeMap[y * width + x] = edge > (20 - sensitivity / 5) ? 1 : 0;
+                }
+            }
+
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const pixelPos = (y * width + x) * 4;
+                    const mapPos = y * width + x;
+
+                    // Calculate distance from center (normalized 0-1)
+                    const distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)) / maxDistance;
+
+                    // Calculate simple intensity
+                    const intensity = (data[pixelPos] + data[pixelPos + 1] + data[pixelPos + 2]) / 3;
+
+                    // Weight the distance and edge factors based on sensitivity
+                    const sensitivityFactor = sensitivity / 100;
+                    const distanceFactor = 1 - (distance * (1 - sensitivityFactor * 0.7));
+                    const edgeFactor = edgeMap[mapPos] * sensitivityFactor;
+
+                    // Calculate subject score (higher = more likely to be in the foreground)
+                    const subjectScore =
+                        distanceFactor * 0.5 +
+                        (intensity / 255) * 0.3 +
+                        edgeFactor * 0.2;
+
+                    // Remove background based on subject score
+                    if (subjectScore < 0.4) {
+                        data[pixelPos + 3] = 0; // Make transparent
+                    }
+                }
+            }
+        }
+
+        // Apply the modified image data back to the canvas
+        ctx.putImageData(imageData, 0, 0);
+
+        // Return as data URL
+        return canvas.toDataURL('image/png');
+    } catch (error) {
+        console.error('Background removal preview failed:', error);
+        throw new Error('Failed to generate background removal preview');
+    }
+}
 /**
  * Changes specific colors in a PNG image
  * @param file PNG file to process
@@ -348,7 +466,72 @@ export async function addBorderPreview(file: File, options: Record<string, any>)
         throw new Error('Failed to generate preview');
     }
 }
+// lib/image-previews.ts - Function to add to this file
 
+/**
+ * Adds noise to an image
+ * @param file Image file to process
+ * @param options Options for adding noise
+ * @returns Promise with a data URL of the processed image
+ */
+export async function addNoisePreview(file: File, options: Record<string, any>): Promise<string> {
+    try {
+        const { canvas, ctx, width, height } = await createImageCanvas(file);
+
+        // Get image data
+        const imageData = ctx.getImageData(0, 0, width, height);
+        const data = imageData.data;
+
+        // Apply noise based on type
+        const noiseAmount = (options.noiseAmount as number) / 100; // Convert percentage to factor
+        const noiseType = options.noiseType as string;
+        const monochrome = options.monochrome as boolean;
+
+        for (let i = 0; i < data.length; i += 4) {
+            // Skip transparent pixels
+            if (data[i + 3] === 0) continue;
+
+            if (noiseType === 'gaussian') {
+                // Gaussian noise - add random value from normal distribution
+                let noise;
+                if (monochrome) {
+                    // Same noise for all channels (monochrome)
+                    noise = (Math.random() * 2 - 1) * 255 * noiseAmount;
+                    data[i] = Math.min(255, Math.max(0, data[i] + noise));
+                    data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + noise));
+                    data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + noise));
+                } else {
+                    // Different noise for each channel (colored)
+                    data[i] = Math.min(255, Math.max(0, data[i] + (Math.random() * 2 - 1) * 255 * noiseAmount));
+                    data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + (Math.random() * 2 - 1) * 255 * noiseAmount));
+                    data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + (Math.random() * 2 - 1) * 255 * noiseAmount));
+                }
+            } else if (noiseType === 'salt-pepper') {
+                // Salt & pepper noise - random black or white pixels
+                if (Math.random() < noiseAmount) {
+                    const val = Math.random() < 0.5 ? 0 : 255;
+                    if (monochrome) {
+                        data[i] = data[i + 1] = data[i + 2] = val;
+                    } else {
+                        // Randomly select which channels to affect
+                        if (Math.random() < 0.33) data[i] = val;
+                        if (Math.random() < 0.33) data[i + 1] = val;
+                        if (Math.random() < 0.33) data[i + 2] = val;
+                    }
+                }
+            }
+        }
+
+        // Put the modified image data back on the canvas
+        ctx.putImageData(imageData, 0, 0);
+
+        // Return as data URL
+        return canvas.toDataURL('image/png');
+    } catch (error) {
+        console.error('Preview generation failed:', error);
+        throw new Error('Failed to generate preview');
+    }
+}
 /**
  * Adds text to an image
  * @param file Image file to process
@@ -578,71 +761,6 @@ export async function rotateImagePreview(file: File, options: Record<string, any
 
         ctx.drawImage(img, -width / 2, -height / 2, width, height);
         ctx.restore();
-
-        // Return as data URL
-        return canvas.toDataURL('image/png');
-    } catch (error) {
-        console.error('Preview generation failed:', error);
-        throw new Error('Failed to generate preview');
-    }
-}
-
-/**
- * Adds noise to an image
- * @param file Image file to process
- * @param options Options for adding noise
- * @returns Promise with a data URL of the processed image
- */
-export async function addNoisePreview(file: File, options: Record<string, any>): Promise<string> {
-    try {
-        const { canvas, ctx, width, height } = await createImageCanvas(file);
-
-        // Get image data
-        const imageData = ctx.getImageData(0, 0, width, height);
-        const data = imageData.data;
-
-        // Apply noise based on type
-        const noiseAmount = (options.noiseAmount as number) / 100; // Convert percentage to factor
-        const noiseType = options.noiseType as string;
-        const monochrome = options.monochrome as boolean;
-
-        for (let i = 0; i < data.length; i += 4) {
-            // Skip transparent pixels
-            if (data[i + 3] === 0) continue;
-
-            if (noiseType === 'gaussian') {
-                // Gaussian noise - add random value from normal distribution
-                let noise;
-                if (monochrome) {
-                    // Same noise for all channels (monochrome)
-                    noise = (Math.random() * 2 - 1) * 255 * noiseAmount;
-                    data[i] = Math.min(255, Math.max(0, data[i] + noise));
-                    data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + noise));
-                    data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + noise));
-                } else {
-                    // Different noise for each channel (colored)
-                    data[i] = Math.min(255, Math.max(0, data[i] + (Math.random() * 2 - 1) * 255 * noiseAmount));
-                    data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + (Math.random() * 2 - 1) * 255 * noiseAmount));
-                    data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + (Math.random() * 2 - 1) * 255 * noiseAmount));
-                }
-            } else if (noiseType === 'salt-pepper') {
-                // Salt & pepper noise - random black or white pixels
-                if (Math.random() < noiseAmount) {
-                    const val = Math.random() < 0.5 ? 0 : 255;
-                    if (monochrome) {
-                        data[i] = data[i + 1] = data[i + 2] = val;
-                    } else {
-                        // Randomly select which channels to affect
-                        if (Math.random() < 0.33) data[i] = val;
-                        if (Math.random() < 0.33) data[i + 1] = val;
-                        if (Math.random() < 0.33) data[i + 2] = val;
-                    }
-                }
-            }
-        }
-
-        // Put the modified image data back on the canvas
-        ctx.putImageData(imageData, 0, 0);
 
         // Return as data URL
         return canvas.toDataURL('image/png');

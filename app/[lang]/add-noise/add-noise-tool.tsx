@@ -12,8 +12,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-// Import NoiseInfoSection component from the same directory
 import { NoiseInfoSection } from "./noise-info-section";
+import { addNoisePreview } from "@/lib/image-preview";
 
 export function AddNoiseTool() {
   const { t } = useLanguageStore();
@@ -25,7 +25,7 @@ export function AddNoiseTool() {
     <div className="space-y-6">
       <div className="space-y-2">
         <div className="flex justify-between items-center">
-          <Label htmlFor="noise-amount">Noise Amount: {noiseAmount}%</Label>
+          <Label htmlFor="noise-amount">{t('imageTools.noise.amountLabel') || "Noise Amount"}: {noiseAmount}%</Label>
         </div>
         <Slider
           id="noise-amount"
@@ -36,26 +36,26 @@ export function AddNoiseTool() {
           onValueChange={(values) => setNoiseAmount(values[0])}
         />
         <p className="text-xs text-muted-foreground">
-          Higher values create more noticeable noise. For subtle effects, use values below 30%.
+          {t('imageTools.noise.amountHint') || "Higher values create more noticeable noise. For subtle effects, use values below 30%."}
         </p>
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="noise-type">Noise Type</Label>
+        <Label htmlFor="noise-type">{t('imageTools.noise.typeLabel') || "Noise Type"}</Label>
         <Select
           value={noiseType}
           onValueChange={(value) => setNoiseType(value)}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select noise type"/>
+            <SelectValue placeholder={t('imageTools.noise.selectType') || "Select noise type"} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="gaussian">Gaussian (Smooth)</SelectItem>
-            <SelectItem value="salt-pepper">Salt & Pepper (Speckles)</SelectItem>
+            <SelectItem value="gaussian">{t('imageTools.noise.gaussian') || "Gaussian (Smooth)"}</SelectItem>
+            <SelectItem value="salt-pepper">{t('imageTools.noise.saltPepper') || "Salt & Pepper (Speckles)"}</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-xs text-muted-foreground">
-          Gaussian noise adds subtle grain, while Salt & Pepper adds random white and black pixels.
+          {t('imageTools.noise.typeHint') || "Gaussian noise adds subtle grain, while Salt & Pepper adds random white and black pixels."}
         </p>
       </div>
       
@@ -65,10 +65,10 @@ export function AddNoiseTool() {
           checked={monochrome}
           onCheckedChange={setMonochrome}
         />
-        <Label htmlFor="monochrome">Monochrome Noise</Label>
+        <Label htmlFor="monochrome">{t('imageTools.noise.monochrome') || "Monochrome Noise"}</Label>
       </div>
       <p className="text-xs text-muted-foreground">
-       "When enabled, noise will be black and white only. When disabled, colored noise will be used."
+       {t('imageTools.noise.monochromeHint') || "When enabled, noise will be black and white only. When disabled, colored noise will be used."}
       </p>
     </div>
   );
@@ -76,15 +76,15 @@ export function AddNoiseTool() {
   return (
     <div>
       <div className="mx-auto flex flex-col items-center text-center mb-8">
-        <h1 className="text-3xl font-bold">Add Noise to PNG</h1>
+        <h1 className="text-3xl font-bold">{t('imageTools.noise.title') || "Add Noise to PNG"}</h1>
         <p className="mt-2 text-muted-foreground">
-          Add film grain or noise effects to your PNG images for artistic styling
+          {t('imageTools.noise.description') || "Add film grain or noise effects to your PNG images for artistic styling"}
         </p>
       </div>
       
       <ImageProcessor
-        title="PNG Noise Generator"
-        description="Upload a PNG image to add noise or grain effects."
+        title={t('imageTools.noise.toolTitle') || "PNG Noise Generator"}
+        description={t('imageTools.noise.toolDescription') || "Upload a PNG image to add noise or grain effects."}
         processEndpoint="image/add-noise"
         fileTypes={["image/png"]}
         processOptions={{ 
@@ -93,6 +93,7 @@ export function AddNoiseTool() {
           monochrome
         }}
         renderOptions={renderOptions}
+        previewRenderer={addNoisePreview}
       />
       
       <NoiseInfoSection />

@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { BorderInfoSection } from "./border-info-section";
+import { addBorderPreview } from "@/lib/image-preview";
 
 export function AddBorderTool() {
   const { t } = useLanguageStore();
@@ -139,36 +140,36 @@ export function AddBorderTool() {
   const renderOptions = (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="preset">Border Presets</Label>
+        <Label htmlFor="preset">{t("imageTools.addBorder.stylesTitle")}</Label>
         <Select onValueChange={applyPreset}>
           <SelectTrigger id="preset">
-            <SelectValue placeholder="Select a preset style" />
+            <SelectValue placeholder={t("ui.select")} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="simple">Simple Border</SelectItem>
-            <SelectItem value="rounded">Rounded Border</SelectItem>
-            <SelectItem value="polaroid">Polaroid Style</SelectItem>
-            <SelectItem value="gradient">Gradient Border</SelectItem>
-            <SelectItem value="frame">Picture Frame</SelectItem>
-            <SelectItem value="vintage">Vintage Frame</SelectItem>
+            <SelectItem value="simple">{t("imageTools.addBorder.basicTitle")}</SelectItem>
+            <SelectItem value="rounded">{t("ui.rounded")}</SelectItem>
+            <SelectItem value="polaroid">{t("ui.polaroid")}</SelectItem>
+            <SelectItem value="gradient">{t("imageTools.addBorder.gradientTitle")}</SelectItem>
+            <SelectItem value="frame">{t("imageTools.addBorder.frameTitle")}</SelectItem>
+            <SelectItem value="vintage">{t("ui.vintage")}</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-xs text-muted-foreground">
-          "Choose a preset or customize your border below"
+          {t("imageTools.addBorder.tip7")}
         </p>
       </div>
       
       <Tabs defaultValue="basic" className="w-full">
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="basic">Basic</TabsTrigger>
-          <TabsTrigger value="advanced">Advanced</TabsTrigger>
-          <TabsTrigger value="effects">Effects</TabsTrigger>
+          <TabsTrigger value="basic">{t("ui.basic")}</TabsTrigger>
+          <TabsTrigger value="advanced">{t("ui.advanced")}</TabsTrigger>
+          <TabsTrigger value="effects">{t("ui.effects")}</TabsTrigger>
         </TabsList>
         
         <TabsContent value="basic" className="space-y-4 mt-4">
           <div className="space-y-2">
             <div className="flex justify-between">
-              <Label htmlFor="border-width">Border Width": {borderWidth}px</Label>
+              <Label htmlFor="border-width">{t("ui.borderWidth")}: {borderWidth}px</Label>
             </div>
             <Slider
               id="border-width"
@@ -181,7 +182,7 @@ export function AddBorderTool() {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="border-color">Border Color</Label>
+            <Label htmlFor="border-color">{t("ui.borderColor")}</Label>
             <div className="flex gap-2">
               <input
                 type="color"
@@ -200,7 +201,7 @@ export function AddBorderTool() {
           
           <div className="space-y-2">
             <div className="flex justify-between">
-              <Label htmlFor="border-radius">Corner Radius": {borderRadius}px</Label>
+              <Label htmlFor="border-radius">{t("ui.cornerRadius")}: {borderRadius}px</Label>
             </div>
             <Slider
               id="border-radius"
@@ -213,23 +214,23 @@ export function AddBorderTool() {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="border-style">Border Style</Label>
+            <Label htmlFor="border-style">{t("ui.borderStyle")}</Label>
             <Select value={borderStyle} onValueChange={setBorderStyle}>
               <SelectTrigger id="border-style">
-                <SelectValue placeholder="Select border style" />
+                <SelectValue placeholder={t("ui.select")} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="solid">Solid</SelectItem>
-                <SelectItem value="dashed">Dashed</SelectItem>
-                <SelectItem value="dotted">Dotted</SelectItem>
-                <SelectItem value="double">Double</SelectItem>
+                <SelectItem value="solid">{t("ui.solid")}</SelectItem>
+                <SelectItem value="dashed">{t("ui.dashed")}</SelectItem>
+                <SelectItem value="dotted">{t("ui.dotted")}</SelectItem>
+                <SelectItem value="double">{t("ui.double")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
           
           <div className="space-y-2">
             <div className="flex justify-between">
-              <Label htmlFor="padding">Image Padding": {padding}px</Label>
+              <Label htmlFor="padding">{t("ui.padding")}: {padding}px</Label>
             </div>
             <Slider
               id="padding"
@@ -249,20 +250,20 @@ export function AddBorderTool() {
               checked={useGradient}
               onCheckedChange={setUseGradient}
             />
-            <Label htmlFor="use-gradient">Use Gradient Border</Label>
+            <Label htmlFor="use-gradient">{t("imageTools.addBorder.gradientTitle")}</Label>
           </div>
           
           {useGradient && (
             <div className="space-y-4 pl-6">
               <div className="space-y-2">
-                <Label htmlFor="gradient-type">Gradient Type</Label>
+                <Label htmlFor="gradient-type">{t("ui.gradientType")}</Label>
                 <Select value={gradientType} onValueChange={setGradientType}>
                   <SelectTrigger id="gradient-type">
-                    <SelectValue placeholder="Select gradient type" />
+                    <SelectValue placeholder={t("ui.select")} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="linear">Linear</SelectItem>
-                    <SelectItem value="radial">Radial</SelectItem>
+                    <SelectItem value="linear">{t("imageTools.addBorder.linearGradient")}</SelectItem>
+                    <SelectItem value="radial">{t("imageTools.addBorder.radialGradient")}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -270,7 +271,7 @@ export function AddBorderTool() {
               {gradientType === "linear" && (
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <Label htmlFor="gradient-angle">Angle": {gradientAngle}°</Label>
+                    <Label htmlFor="gradient-angle">{t("ui.angle")}: {gradientAngle}°</Label>
                   </div>
                   <Slider
                     id="gradient-angle"
@@ -284,7 +285,7 @@ export function AddBorderTool() {
               )}
               
               <div className="space-y-2">
-                <Label htmlFor="gradient-color-1"> "Color 1</Label>
+                <Label htmlFor="gradient-color-1">{t("ui.color")} 1</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -302,7 +303,7 @@ export function AddBorderTool() {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="gradient-color-2">Color 2</Label>
+                <Label htmlFor="gradient-color-2">{t("ui.color")} 2</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -327,14 +328,14 @@ export function AddBorderTool() {
               checked={useFrame}
               onCheckedChange={setUseFrame}
             />
-            <Label htmlFor="use-frame">Add Inner Frame</Label>
+            <Label htmlFor="use-frame">{t("imageTools.addBorder.frameDesc")}</Label>
           </div>
           
           {useFrame && (
             <div className="space-y-4 pl-6">
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <Label htmlFor="frame-width">Frame Width": {frameWidth}px</Label>
+                  <Label htmlFor="frame-width">{t("ui.frameWidth")}: {frameWidth}px</Label>
                 </div>
                 <Slider
                   id="frame-width"
@@ -347,7 +348,7 @@ export function AddBorderTool() {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="frame-color">Frame Color</Label>
+                <Label htmlFor="frame-color">{t("ui.frameColor")}</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -374,13 +375,13 @@ export function AddBorderTool() {
               checked={useShadow}
               onCheckedChange={setUseShadow}
             />
-            <Label htmlFor="use-shadow">Add Drop Shadow</Label>
+            <Label htmlFor="use-shadow">{t("imageTools.addBorder.shadowTitle")}</Label>
           </div>
           
           {useShadow && (
             <div className="space-y-4 pl-6">
               <div className="space-y-2">
-                <Label htmlFor="shadow-color">Shadow Color</Label>
+                <Label htmlFor="shadow-color">{t("ui.shadowColor")}</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -399,7 +400,7 @@ export function AddBorderTool() {
               
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <Label htmlFor="shadow-blur">Blur": {shadowBlur}px</Label>
+                  <Label htmlFor="shadow-blur">{t("ui.blur")}: {shadowBlur}px</Label>
                 </div>
                 <Slider
                   id="shadow-blur"
@@ -413,7 +414,7 @@ export function AddBorderTool() {
               
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="shadow-offset-x">Horizontal Offset": {shadowOffsetX}px</Label>
+                  <Label htmlFor="shadow-offset-x">{t("ui.horizontalOffset")}: {shadowOffsetX}px</Label>
                   <Slider
                     id="shadow-offset-x"
                     min={-50}
@@ -424,7 +425,7 @@ export function AddBorderTool() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="shadow-offset-y">Vertical Offset": {shadowOffsetY}px</Label>
+                  <Label htmlFor="shadow-offset-y">{t("ui.verticalOffset")}: {shadowOffsetY}px</Label>
                   <Slider
                     id="shadow-offset-y"
                     min={-50}
@@ -444,42 +445,43 @@ export function AddBorderTool() {
 
   return (
     <div>
-      <div className="mx-auto flex flex-col items-center text-center mb-8">
-        <h1 className="text-3xl font-bold">Add Border to Image</h1>
-        <p className="mt-2 text-muted-foreground">
-          "Enhance your images with custom borders, frames, and effects"
-        </p>
-      </div>
-      
-      <ImageProcessor
-        title="Image Border Tool"
-        description="Upload an image to add a custom border or frame."
-        processEndpoint="image/add-border"
-        fileTypes={["image/jpeg", "image/png", "image/webp"]}
-        processOptions={{
-          borderStyle,
-          borderWidth,
-          borderColor,
-          borderRadius,
-          useGradient,
-          gradientType,
-          gradientAngle,
-          gradientColor1,
-          gradientColor2,
-          useFrame,
-          frameWidth,
-          frameColor,
-          padding,
-          useShadow,
-          shadowColor,
-          shadowBlur,
-          shadowOffsetX,
-          shadowOffsetY
-        }}
-        renderOptions={renderOptions}
-      />
-      
-      <BorderInfoSection />
+    <div className="mx-auto flex flex-col items-center text-center mb-8">
+      <h1 className="text-3xl font-bold">{t("imageTools.addBorder.title")}</h1>
+      <p className="mt-2 text-muted-foreground">
+        {t("imageTools.addBorder.description")}
+      </p>
     </div>
+    
+    <ImageProcessor
+      title={t("imageTools.addBorder.metaTitle")}
+      description={t("imageTools.addBorder.metaDescription")}
+      processEndpoint="image/add-border"
+      fileTypes={["image/jpeg", "image/png", "image/webp"]}
+      processOptions={{
+        borderStyle,
+        borderWidth,
+        borderColor,
+        borderRadius,
+        useGradient,
+        gradientType,
+        gradientAngle,
+        gradientColor1,
+        gradientColor2,
+        useFrame,
+        frameWidth,
+        frameColor,
+        padding,
+        useShadow,
+        shadowColor,
+        shadowBlur,
+        shadowOffsetX,
+        shadowOffsetY
+      }}
+      renderOptions={renderOptions}
+      previewRenderer={addBorderPreview}
+    />
+    
+    <BorderInfoSection />
+  </div>
   );
 }

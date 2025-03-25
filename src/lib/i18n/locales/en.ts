@@ -16,7 +16,80 @@ export default {
     contact: "Contact",
     login: "Log In",
     signup: "Sign Up",
-    getApp: "Get our mobile app for on-the-go image tools"
+    getApp: "Get our mobile app for on-the-go image tools",
+    tryNow: "Try Now",
+    new: "NEW",
+    popular: "Popular"
+  },
+  hero: {
+    title: "Professional Image Tools",
+    titleHighlight: "Completely Free",
+    description: "Transform your images in seconds with our powerful online tools. No downloads required.",
+    getStarted: "Get Started",
+    learnMore: "Learn More"
+  },
+
+  // Featured Tools section
+  featuredTools: {
+    title: "Popular Image Tools",
+    description: "Transform your images for any project with our most-used tools."
+  },
+
+  // All Tools section
+  allTools: {
+    title: "All Image Tools",
+    description: "Explore our complete set of image processing and editing tools."
+  },
+  features: {
+    title: "Why Choose Our Image Tools",
+    description: "Powerful tools that make image editing simple for everyone.",
+    easyToUse: {
+      title: "Easy to Use",
+      description: "Our intuitive interface makes image editing simple - no design skills required."
+    },
+    privacyFirst: {
+      title: "Privacy First",
+      description: "Your images are processed in your browser. We don't store or share your files."
+    },
+    fastProcessing: {
+      title: "Fast Processing",
+      description: "Advanced algorithms ensure quick processing even for large images."
+    },
+    highQuality: {
+      title: "High Quality Results",
+      description: "Get professional-quality image editing without quality loss."
+    }
+  },
+
+  // How It Works section
+  howItWorks: {
+    title: "How It Works",
+    description: "Transform your images in just a few simple steps."
+  },
+
+  // Steps for How It Works
+  steps: {
+    chooseTool: {
+      title: "Choose a Tool",
+      description: "Select the image tool you need from our wide range of options."
+    },
+    uploadImage: {
+      title: "Upload Your Image",
+      description: "Upload the image you want to process. We support PNG, JPG, WebP and SVG files."
+    },
+    adjustSettings: {
+      title: "Adjust Settings",
+      description: "Customize the tool settings according to your specific needs."
+    },
+    downloadResult: {
+      title: "Download Result",
+      description: "Process your image and download the result with a single click."
+    }
+  },
+  cta: {
+    title: "Ready to Transform Your Images?",
+    description: "Start using our free image tools today - no registration required.",
+    getStarted: "Get Started Now"
   },
   ui: {
     dark: "Dark",
