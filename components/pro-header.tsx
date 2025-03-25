@@ -10,20 +10,23 @@ import {
   MobileIcon,
 } from "@radix-ui/react-icons";
 import {
-  FileText,
-  Image,
-  Table,
-  ArrowRight,
-  ArrowDown,
-  Shield,
-  Lock,
-  Download,
-  Apple,
-  FileBoxIcon,
-  FileCheck2,
-  PenTool,
   FileImage,
   Palette,
+  Image,
+  Crop,
+  RotateCw,
+  Type,
+  Square,
+  ImagePlus,
+  SlidersHorizontal,
+  Sun,
+  Aperture,
+  CloudOff,
+  Layers,
+  Paintbrush,
+  FileText,
+  Download,
+  Apple,
 } from "lucide-react";
 import { useLanguageStore } from "@/src/store/store";
 
@@ -36,6 +39,7 @@ type ToolDefinition = {
   href: string;
   icon: React.ReactNode;
   description: string;
+  isNew?: boolean;
 };
 
 type CategoryDefinition = {
@@ -112,185 +116,230 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
     { code: "it", name: "Italian", nativeName: "Italiano", flag: "🇮🇹" },
     { code: "tr", name: "Turkish", nativeName: "Türkçe", flag: "🇹🇷" },
   ];
-  const PDF_TOOLS: CategoryDefinition[] = [
+  
+  // Image tools categories
+  const IMAGE_TOOLS: CategoryDefinition[] = [
     {
-      category: isClient
-        ? t("pdfTools.categories.convertFromPdf")
-        : "Convert PDF",
-      description:
-        t("pdfTools.categories.convertFromPdfDesc") ||
-        "Convert PDF files to various formats and vice versa",
+      category: isClient ? t("imageTools.categories.conversion") || "Format Conversion" : "Format Conversion",
+      description: "Convert images between different formats",
       tools: [
         {
-          name: t("popular.pdfToWord"),
-          href: "/convert/pdf-to-docx",
-          icon: <FileText className="h-5 w-5 text-blue-500" />,
-          description: t("popular.pdfToWordDesc"),
+          name: isClient ? t("imageTools.makeTransparent.title") || "Make a PNG Transparent" : "Make a PNG Transparent",
+          href: "/make-transparent",
+          icon: <FileImage className="h-5 w-5 text-blue-500" />,
+          description: isClient ? t("imageTools.makeTransparent.description") || "Quickly replace any color in a PNG file with transparency." : "Quickly replace any color in a PNG file with transparency."
         },
         {
-          name: t("popular.pdfToExcel"),
-          href: "/convert/pdf-to-xlsx",
-          icon: <Table className="h-5 w-5 text-green-500" />,
-          description: t("popular.pdfToExcelDesc"),
+          name: isClient ? t("imageTools.pngToJpg.title") || "Convert PNG to JPG" : "Convert PNG to JPG",
+          href: "/png-to-jpg",
+          icon: <Image className="h-5 w-5 text-blue-500" />,
+          description: isClient ? t("imageTools.pngToJpg.description") || "Convert PNG graphics files to JPEG format with adjustable quality." : "Convert PNG graphics files to JPEG format with adjustable quality."
         },
         {
-          name: t("popular.pdfToJpg"),
-          href: "/convert/pdf-to-jpg",
-          icon: <Image className="h-5 w-5 text-yellow-500" />,
-          description: t("popular.pdfToJpgDesc"),
+          name: isClient ? t("imageTools.jpgToPng.title") || "Convert JPG to PNG" : "Convert JPG to PNG",
+          href: "/jpg-to-png",
+          icon: <Image className="h-5 w-5 text-blue-500" />,
+          description: isClient ? t("imageTools.jpgToPng.description") || "Convert JPEG images to PNG format with transparency support." : "Convert JPEG images to PNG format with transparency support."
         },
         {
-          name: t("popular.wordToPdf"),
-          href: "/convert/docx-to-pdf",
-          icon: <FileText className="h-5 w-5 text-blue-500" />,
-          description: t("popular.wordToPdfDesc"),
+          name: isClient ? t("imageTools.pngToWebp.title") || "Convert PNG to WebP" : "Convert PNG to WebP",
+          href: "/png-to-webp",
+          icon: <FileImage className="h-5 w-5 text-blue-500" />,
+          description: isClient ? t("imageTools.pngToWebp.description") || "Convert PNG images to WebP for better web performance." : "Convert PNG images to WebP for better web performance."
         },
         {
-          name: t("popular.jpgToPdf"),
-          href: "/convert/jpg-to-pdf",
-          icon: <Image className="h-5 w-5 text-yellow-500" />,
-          description: t("popular.jpgToPdfDesc"),
+          name: isClient ? t("imageTools.webpToPng.title") || "Convert WebP to PNG" : "Convert WebP to PNG",
+          href: "/webp-to-png",
+          icon: <FileImage className="h-5 w-5 text-blue-500" />,
+          description: isClient ? t("imageTools.webpToPng.description") || "Convert WebP images to PNG format for better compatibility." : "Convert WebP images to PNG format for better compatibility."
         },
-      ],
+        {
+          name: isClient ? t("imageTools.svgToPng.title") || "Convert SVG to PNG" : "Convert SVG to PNG",
+          href: "/svg-to-png",
+          icon: <FileImage className="h-5 w-5 text-blue-500" />,
+          description: isClient ? t("imageTools.svgToPng.description") || "Convert vector SVG files to raster PNG images." : "Convert vector SVG files to raster PNG images."
+        },
+      ]
     },
     {
-      category: t("pdfTools.categories.organizePdf") || "PDF Management",
-      description:
-        t("pdfTools.categories.organizePdfDesc") ||
-        "Tools to organize and modify PDF files",
+      category: isClient ? t("imageTools.categories.editing") || "Image Editing" : "Image Editing",
+      description: "Edit and modify your images",
       tools: [
         {
-          name: t("popular.mergePdf"),
-          href: "/merge",
-          icon: <ArrowRight className="h-5 w-5 text-red-500" />,
-          description: t("popular.mergePdfDesc"),
+          name: isClient ? t("imageTools.changeColors.title") || "Change Colors in PNG" : "Change Colors in PNG",
+          href: "/change-colors",
+          icon: <Palette className="h-5 w-5 text-purple-500" />,
+          description: isClient ? t("imageTools.changeColors.description") || "Replace specific colors in your PNG images with new colors." : "Replace specific colors in your PNG images with new colors."
         },
         {
-          name: t("popular.splitPdf"),
-          href: "/split",
-          icon: <ArrowDown className="h-5 w-5 text-green-500" />,
-          description: t("popular.splitPdfDesc"),
+          name: isClient ? t("imageTools.changeTone.title") || "Change Color Tone" : "Change Color Tone",
+          href: "/change-tone",
+          icon: <Paintbrush className="h-5 w-5 text-purple-500" />,
+          description: isClient ? t("imageTools.changeTone.description") || "Apply color tones and tints to your images for artistic effects." : "Apply color tones and tints to your images for artistic effects."
         },
         {
-          name: t("popular.compressPdf"),
+          name: "Resize Image",
+          href: "/resize",
+          icon: <Image className="h-5 w-5 text-purple-500" />,
+          description: "Resize images to exact dimensions while preserving quality.",
+          isNew: true
+        },
+        {
+          name: "Crop Image",
+          href: "/crop",
+          icon: <Crop className="h-5 w-5 text-purple-500" />,
+          description: "Crop images to remove unwanted areas and focus on important content.",
+          isNew: true
+        },
+        {
+          name: "Rotate & Flip",
+          href: "/rotate",
+          icon: <RotateCw className="h-5 w-5 text-purple-500" />,
+          description: "Rotate and flip images to the correct orientation.",
+          isNew: true
+        },
+        {
+          name: "Add Text to Image",
+          href: "/add-text",
+          icon: <Type className="h-5 w-5 text-purple-500" />,
+          description: "Add custom text, captions, or watermarks to your images.",
+          isNew: true
+        },
+      ]
+    },
+    {
+      category: isClient ? t("imageTools.categories.enhancement") || "Image Enhancement" : "Image Enhancement",
+      description: "Enhance and improve your images",
+      tools: [
+        {
+          name: isClient ? t("imageTools.noise.title") || "Add Noise" : "Add Noise",
+          href: "/add-noise",
+          icon: <Aperture className="h-5 w-5 text-green-500" />,
+          description: isClient ? t("imageTools.noise.description") || "Add film grain or noise effects to your images." : "Add film grain or noise effects to your images."
+        },
+        {
+          name: "Add Border",
+          href: "/add-border",
+          icon: <Square className="h-5 w-5 text-green-500" />,
+          description: "Add custom borders to your images with various styles and colors.",
+          isNew: true
+        },
+        {
+          name: "Apply Image Filters",
+          href: "/filters",
+          icon: <SlidersHorizontal className="h-5 w-5 text-green-500" />,
+          description: "Enhance images with professional filters like grayscale, sepia, and more.",
+          isNew: true
+        },
+        {
+          name: "Adjust Brightness & Contrast",
+          href: "/adjust",
+          icon: <Sun className="h-5 w-5 text-green-500" />,
+          description: "Fine-tune brightness, contrast, saturation and other image properties.",
+          isNew: true
+        },
+      ]
+    },
+    {
+      category: isClient ? t("imageTools.categories.optimization") || "Optimization" : "Optimization",
+      description: "Optimize your images for web performance",
+      tools: [
+        {
+          name: isClient ? t("imageTools.compressPng.title") || "Compress PNG" : "Compress PNG",
           href: "/compress",
-          icon: <Download className="h-5 w-5 text-purple-500" />,
-          description: t("popular.compressPdfDesc"),
+          icon: <Download className="h-5 w-5 text-amber-500" />,
+          description: isClient ? t("imageTools.compressPng.description") || "Reduce PNG file sizes while maintaining quality." : "Reduce PNG file sizes while maintaining quality."
         },
         {
-          name: t("universalCompressor.title"),
-          href: "/compress-files",
-          icon: <FileBoxIcon className="h-5 w-5 text-purple-500" />,
-          description: t("universalCompressor.description"),
+          name: "Compress JPG",
+          href: "/compress-jpg",
+          icon: <Download className="h-5 w-5 text-amber-500" />,
+          description: "Optimize JPG images with adjustable quality settings.",
+          isNew: true
         },
-      ],
+        {
+          name: "Batch Resize",
+          href: "/batch-resize",
+          icon: <ImagePlus className="h-5 w-5 text-amber-500" />,
+          description: "Resize multiple images at once to the same dimensions.",
+          isNew: true
+        },
+      ]
     },
     {
-      category: t("pdfTools.categories.pdfSecurity") || "PDF Security",
-      description: "Protect and manage PDF access",
+      category: isClient ? t("imageTools.categories.advanced") || "Advanced Tools" : "Advanced Tools",
+      description: "Advanced image processing tools",
       tools: [
         {
-          name: t("popular.unlockPdf"),
-          href: "/unlock",
-          icon: <Lock className="h-5 w-5 text-blue-500" />,
-          description: t("popular.unlockPdfDesc"),
+          name: isClient ? t("imageTools.pngToBase64.title") || "Convert PNG to Base64" : "Convert PNG to Base64",
+          href: "/png-to-base64",
+          icon: <FileImage className="h-5 w-5 text-indigo-500" />,
+          description: isClient ? t("imageTools.pngToBase64.description") || "Convert PNG images to base64 encoding for embedding in web pages." : "Convert PNG images to base64 encoding for embedding in web pages."
         },
         {
-          name: t("popular.protectPdf"),
-          href: "/protect",
-          icon: <Shield className="h-5 w-5 text-blue-500" />,
-          description: t("popular.protectPdfDesc"),
+          name: isClient ? t("imageTools.base64ToPng.title") || "Convert Base64 to PNG" : "Convert Base64 to PNG",
+          href: "/base64-to-png",
+          icon: <FileImage className="h-5 w-5 text-indigo-500" />,
+          description: isClient ? t("imageTools.base64ToPng.description") || "Convert base64-encoded image strings back to PNG files." : "Convert base64-encoded image strings back to PNG files."
         },
         {
-          name: t("popular.signPdf"),
-          href: "/sign",
-          icon: <PenTool className="h-5 w-5 text-green-500" />,
-          description: t("popular.signPdfDesc"),
+          name: "Remove Background",
+          href: "/remove-background",
+          icon: <CloudOff className="h-5 w-5 text-indigo-500" />,
+          description: "Automatically remove backgrounds from photos and images.",
+          isNew: true
         },
         {
-          name: t("popular.ocr"),
-          href: "/ocr",
-          icon: <FileCheck2 className="h-5 w-5 text-blue-500" />,
-          description: t("popular.ocrDesc"),
+          name: "Images to PDF",
+          href: "/images-to-pdf",
+          icon: <FileText className="h-5 w-5 text-indigo-500" />,
+          description: "Convert multiple images to a single PDF document.",
+          isNew: true
         },
-      ],
+        {
+          name: "Merge Images",
+          href: "/merge",
+          icon: <Layers className="h-5 w-5 text-indigo-500" />,
+          description: "Combine multiple images side by side or vertically.",
+          isNew: true
+        },
+      ]
     },
   ];
 
-  // Image tools for direct navigation
-  const IMAGE_TOOLS = [
-    {
-      name: "Make Transparent",
-      href: "/image-tools/make-transparent",
-      icon: <FileImage className="h-5 w-5 text-blue-500" />,
-      description: "Remove backgrounds by replacing colors with transparency",
-    },
-    {
-      name: "Change Colors",
-      href: "/image-tools/change-colors",
-      icon: <Palette className="h-5 w-5 text-purple-500" />,
-      description: "Replace specific colors in your images",
-    },
-    {
-      name: "Change Color Tone",
-      href: "/image-tools/change-tone",
-      icon: <Palette className="h-5 w-5 text-amber-500" />,
-      description: "Apply color tones and tints to your images",
-    },
-    {
-      name: "Compress PNG",
-      href: "/image-tools/compress",
-      icon: <Image className="h-5 w-5 text-green-500" />,
-      description: "Reduce PNG file sizes while maintaining quality",
-    },
-    {
-      name: "PNG to JPG",
-      href: "/image-tools/png-to-jpg",
-      icon: <FileImage className="h-5 w-5 text-blue-500" />,
-      description: "Convert PNG images to JPG format",
-    },
-    {
-      name: "JPG to PNG",
-      href: "/image-tools/jpg-to-png",
-      icon: <FileImage className="h-5 w-5 text-blue-500" />,
-      description: "Convert JPG images to PNG format",
-    },
-  ];
-
+  // Navigation items for image tools categories
   const navItems = [
     {
       label: isClient ? t("imageTools.title") || "Image Tools" : "Image Tools",
       href: "/image-tools",
     },
     {
-      label: t("nav.convertPdf"),
-      dropdown: PDF_TOOLS.filter(
-        (cat) =>
-          cat.category ===
-          (isClient ? t("pdfTools.categories.convertFromPdf") : "Convert PDF")
-      ),
+      label: isClient ? t("imageTools.categories.conversion") || "Format Conversion" : "Format Conversion",
+      dropdown: IMAGE_TOOLS.filter(cat => cat.category === (isClient ? t("imageTools.categories.conversion") || "Format Conversion" : "Format Conversion")),
     },
     {
-      label: t("pdfTools.categories.organizePdf"),
-      dropdown: PDF_TOOLS.filter(
-        (cat) =>
-          cat.category ===
-          (isClient ? t("pdfTools.categories.organizePdf") : "PDF Management")
-      ),
+      label: isClient ? t("imageTools.categories.editing") || "Image Editing" : "Image Editing",
+      dropdown: IMAGE_TOOLS.filter(cat => cat.category === (isClient ? t("imageTools.categories.editing") || "Image Editing" : "Image Editing")),
     },
     {
-      label: t("pdfTools.categories.pdfSecurity"),
-      dropdown: PDF_TOOLS.filter(
-        (cat) =>
-          cat.category ===
-          (isClient ? t("pdfTools.categories.pdfSecurity") : "PDF Security")
-      ),
+      label: isClient ? t("imageTools.categories.enhancement") || "Image Enhancement" : "Image Enhancement",
+      dropdown: IMAGE_TOOLS.filter(cat => cat.category === (isClient ? t("imageTools.categories.enhancement") || "Image Enhancement" : "Image Enhancement")),
     },
     {
-      label: t("popular.viewAll"),
-      dropdown: PDF_TOOLS,
+      label: isClient ? t("imageTools.categories.optimization") || "Optimization" : "Optimization",
+      dropdown: IMAGE_TOOLS.filter(cat => cat.category === (isClient ? t("imageTools.categories.optimization") || "Optimization" : "Optimization")),
+    },
+    {
+      label: isClient ? t("imageTools.categories.advanced") || "Advanced Tools" : "Advanced Tools",
+      dropdown: IMAGE_TOOLS.filter(cat => cat.category === (isClient ? t("imageTools.categories.advanced") || "Advanced Tools" : "Advanced Tools")),
     },
   ];
+
+  const renderNewBadge = () => (
+    <span className="ml-1.5 text-xs font-medium bg-primary/20 text-primary-foreground px-1.5 py-0.5 rounded-full">
+      {t("ui.new")}
+    </span>
+  );
 
   return (
     <>
@@ -303,8 +352,8 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
               <p className="text-sm font-medium">
                 {isClient
                   ? t("nav.getApp") ||
-                    "Get our mobile app for on-the-go PDF tools"
-                  : "Get our mobile app for on-the-go PDF tools"}
+                    "Get our mobile app for on-the-go image tools"
+                  : "Get our mobile app for on-the-go image tools"}
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -371,61 +420,59 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            {/* Direct link to Image Tools */}
-            <LanguageLink
-              href="/image-tools"
-              className="text-sm font-medium text-foreground transition-colors hover:text-primary"
-            >
-              {isClient
-                ? t("imageTools.title") || "Image Tools"
-                : "Image Tools"}
-            </LanguageLink>
+            {/* Navigation items with dropdowns */}
+            {navItems.map((item, index) => (
+              <div key={index} className="relative group">
+                {item.href ? (
+                  <LanguageLink
+                    href={item.href}
+                    className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {item.label}
+                  </LanguageLink>
+                ) : (
+                  <LanguageLink
+                    href="#"
+                    className="text-sm font-medium text-foreground transition-colors hover:text-primary flex items-center gap-1"
+                  >
+                    {item.label}
+                    <ChevronDownIcon className="h-4 w-4 opacity-70" />
+                  </LanguageLink>
+                )}
 
-            {/* PDF Tool Dropdowns */}
-            {navItems.slice(1).map((item) => (
-              <div key={item.label} className="relative group">
+                {/* Dropdown Menu */}
                 {item.dropdown && (
-                  <>
-                    <LanguageLink
-                      href="#"
-                      className="text-sm font-medium text-foreground transition-colors hover:text-primary flex items-center gap-1"
-                    >
-                      {item.label}
-                      <ChevronDownIcon className="h-4 w-4 opacity-70" />
-                    </LanguageLink>
-
-                    {/* Dropdown Menu */}
-                    <div className="absolute top-full left-0 mt-2 w-[600px] bg-background border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4">
-                      {item.dropdown.map((category) => (
-                        <div key={category.category} className="mb-4">
-                          <div className="font-semibold text-sm text-foreground mb-2">
-                            {category.category}
-                          </div>
-                          <div className="grid grid-cols-3 gap-4">
-                            {category.tools.map((tool) => (
-                              <LanguageLink
-                                key={tool.name}
-                                href={tool.href}
-                                className="flex items-start gap-3 p-2 hover:bg-muted rounded-md transition-colors"
-                              >
-                                <div className="p-1 rounded-md bg-primary/10">
-                                  {tool.icon}
-                                </div>
-                                <div>
-                                  <div className="text-sm font-medium">
-                                    {tool.name}
-                                  </div>
-                                  <p className="text-xs text-muted-foreground">
-                                    {tool.description}
-                                  </p>
-                                </div>
-                              </LanguageLink>
-                            ))}
-                          </div>
+                  <div className="absolute top-full left-0 mt-2 w-[600px] bg-background border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-4">
+                    {item.dropdown.map((category) => (
+                      <div key={category.category} className="mb-4">
+                        <div className="font-semibold text-sm text-foreground mb-2">
+                          {category.category}
                         </div>
-                      ))}
-                    </div>
-                  </>
+                        <div className="grid grid-cols-3 gap-4">
+                          {category.tools.map((tool) => (
+                            <LanguageLink
+                              key={tool.name}
+                              href={tool.href}
+                              className="flex items-start gap-3 p-2 hover:bg-muted rounded-md transition-colors"
+                            >
+                              <div className="p-1 rounded-md bg-primary/10">
+                                {tool.icon}
+                              </div>
+                              <div>
+                                <div className="text-sm font-medium flex items-center">
+                                  {tool.name}
+                                  {tool.isNew && renderNewBadge()}
+                                </div>
+                                <p className="text-xs text-muted-foreground">
+                                  {tool.description}
+                                </p>
+                              </div>
+                            </LanguageLink>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
             ))}
@@ -455,54 +502,27 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur border-t max-h-[calc(100vh-4rem)] overflow-y-auto shadow-md">
             <div className="container max-w-6xl mx-auto py-4 space-y-4">
-              {/* Direct link to Image Tools */}
-              <LanguageLink
-                href="/image-tools"
-                className="block px-3 py-3 text-lg font-medium hover:bg-primary/5 rounded-md transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {isClient
-                  ? t("imageTools.title") || "Image Tools"
-                  : "Image Tools"}
-              </LanguageLink>
-
-              {/* Image Tools Sub-Items */}
-              <div className="pl-4 space-y-2">
-                <div className="text-sm font-medium text-primary mb-2">
-                  Popular Image Tools
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {IMAGE_TOOLS.map((tool) => (
+              {/* Mobile Navigation Items */}
+              {navItems.map((item, index) => (
+                <div key={index} className="space-y-2">
+                  {item.href ? (
                     <LanguageLink
-                      key={tool.name}
-                      href={tool.href}
-                      className="flex items-start gap-3 p-2 hover:bg-muted rounded-md transition-colors"
+                      href={item.href}
+                      className="block px-3 py-3 text-lg font-medium hover:bg-primary/5 rounded-md transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <div className="p-1 rounded-md bg-primary/10">
-                        {tool.icon}
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium">{tool.name}</div>
-                      </div>
+                      {item.label}
                     </LanguageLink>
-                  ))}
-                </div>
-              </div>
-
-              {/* PDF Tools Sections */}
-              {navItems.slice(1).map((item) => (
-                <div key={item.label} className="space-y-2">
-                  <div className="block px-3 py-3 text-lg font-medium hover:bg-primary/5 rounded-md transition-colors">
-                    {item.label}
-                  </div>
+                  ) : (
+                    <div className="block px-3 py-3 text-lg font-medium hover:bg-primary/5 rounded-md transition-colors">
+                      {item.label}
+                    </div>
+                  )}
+                  
                   {item.dropdown && (
-                    <div className="pl-4 space-y-2">
+                    <div className="pl-4 space-y-4">
                       {item.dropdown.map((category) => (
                         <div key={category.category}>
-                          <div className="text-sm font-medium text-primary mb-2">
-                            {category.category}
-                          </div>
                           <div className="grid grid-cols-2 gap-2">
                             {category.tools.map((tool) => (
                               <LanguageLink
@@ -515,8 +535,9 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
                                   {tool.icon}
                                 </div>
                                 <div>
-                                  <div className="text-sm font-medium">
+                                  <div className="text-sm font-medium flex items-center">
                                     {tool.name}
+                                    {tool.isNew && renderNewBadge()}
                                   </div>
                                 </div>
                               </LanguageLink>

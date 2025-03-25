@@ -47,7 +47,7 @@ export async function generateMetadata({
     },
     description: t("metadata.description"),
     metadataBase: new URL(
-      process.env.NEXT_PUBLIC_APP_URL || "https://scanpro.cc"
+      process.env.NEXT_PUBLIC_APP_URL || "https://imagepro.cc"
     ),
     alternates: {
       canonical: `/${lang}`,

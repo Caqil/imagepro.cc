@@ -1,23 +1,23 @@
-// app/[lang]/page.tsx
+// app/[lang]/image-tools/page.tsx
 import { Metadata } from "next";
+import { ImageTools } from "@/components/image-tools";
 import { SUPPORTED_LANGUAGES } from '@/src/lib/i18n/config';
-import { Homepage } from "./home-content";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: paramLang } = await params;
   const lang = SUPPORTED_LANGUAGES.includes(paramLang as any) ? paramLang : "en";
   
   return {
-    title: "ScanPro - Professional Image Tools For Everyone",
-    description: "Transform your images with our free online image tools. Edit, convert, enhance and optimize your images in seconds.",
+    title: "Image Tools - Edit, Convert, Optimize & Enhance Images Online",
+    description: "Free online image tools to convert, compress, edit and transform your images. No registration required.",
     openGraph: {
-      title: "ScanPro - Professional Image Tools For Everyone",
-      description: "Transform your images with our free online image tools. Edit, convert, enhance and optimize your images in seconds.",
-      url: `/${lang}`,
+      title: "Image Tools - Edit, Convert, Optimize & Enhance Images Online",
+      description: "Free online image tools to convert, compress, edit and transform your images. No registration required.",
+      url: `/${lang}/image-tools`,
       siteName: "ScanPro",
       images: [
         {
-          url: "/og-image.png",
+          url: "/og-image-tools.png",
           width: 1200,
           height: 630,
           alt: "ScanPro Image Tools"
@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     twitter: {
       card: "summary_large_image",
-      title: "ScanPro - Professional Image Tools For Everyone",
-      description: "Transform your images with our free online image tools. Edit, convert, enhance and optimize your images in seconds.",
-      images: ["/og-image.png"],
+      title: "Image Tools - Edit, Convert, Optimize & Enhance Images Online",
+      description: "Free online image tools to convert, compress, edit and transform your images. No registration required.",
+      images: ["/og-image-tools.png"],
     },
     alternates: {
-      canonical: `/${lang}`,
+      canonical: `/${lang}/image-tools`,
       languages: Object.fromEntries(
         SUPPORTED_LANGUAGES.map(code => {
           const langCode = {
@@ -53,13 +53,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
             'tr': 'tr-TR'
           }[code] || `${code}`;
           
-          return [langCode, `/${code}`];
+          return [langCode, `/${code}/image-tools`];
         })
       ),
     }
   };
 }
 
-export default function HomePage() {
-  return <Homepage />;
+// Use a different name for the page component to avoid recursion
+export default function Page() {
+  return <ImageTools />;
 }
