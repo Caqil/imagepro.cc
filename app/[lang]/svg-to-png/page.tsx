@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: "Convert SVG to PNG | Image Tools",
       description: "Quickly convert SVG vector graphics to PNG raster images with custom dimensions",
       url: `/${lang}/image-tools/svg-to-png`,
-      siteName: "ScanPro",
+      siteName: "ImagePro",
     },
     alternates: {
       canonical: `/${lang}/image-tools/svg-to-png`,

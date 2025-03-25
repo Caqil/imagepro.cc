@@ -47,7 +47,7 @@ export function Base64ToPngTool() {
   const renderOptions = (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="base64-input">"Paste Base64 String"</Label>
+        <Label htmlFor="base64-input">Paste Base64 String</Label>
         <Textarea
           id="base64-input"
           value={base64Input}
@@ -86,7 +86,7 @@ export function Base64ToPngTool() {
   return (
     <div>
       <div className="mx-auto flex flex-col items-center text-center mb-8">
-        <h1 className="text-3xl font-bold">"Convert Base64 to PNG"</h1>
+        <h1 className="text-3xl font-bold">Convert Base64 to PNG</h1>
         <p className="mt-2 text-muted-foreground">
           "Convert Base64 encoded image data to a PNG file"
         </p>
@@ -100,7 +100,7 @@ export function Base64ToPngTool() {
       
       <div className="mt-12 space-y-6">
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">"What is Base64?"</h2>
+          <h2 className="text-xl font-medium mb-4">What is Base64?</h2>
           <div className="space-y-3">
             <p className="text-sm text-muted-foreground">
               "Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's commonly used for embedding image data directly in HTML, CSS, or JSON."
@@ -109,19 +109,19 @@ export function Base64ToPngTool() {
         </div>
         
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">"Common Use Cases"</h2>
+          <h2 className="text-xl font-medium mb-4">Common Use Cases</h2>
           <div className="space-y-2">
             <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-              <li>"Extract embedded images from CSS or HTML files"</li>
-              <li>"Convert data URI scheme images to regular PNGs"</li>
-              <li>"Save images from API responses that return Base64 data"</li>
-              <li>"Convert clipboard image data to PNG files"</li>
+              <li>Extract embedded images from CSS or HTML files</li>
+              <li>Convert data URI scheme images to regular PNGs</li>
+              <li>Save images from API responses that return Base64 data</li>
+              <li>Convert clipboard image data to PNG files</li>
             </ul>
           </div>
         </div>
         
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">"Base64 Image Formats"</h2>
+          <h2 className="text-xl font-medium mb-4">Base64 Image Formats</h2>
           <div className="space-y-3">
             <p className="text-sm text-muted-foreground">
               "Base64 encoded images typically appear in one of these formats:"

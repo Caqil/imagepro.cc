@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title,
       description,
       url: `/${lang}/image-tools/add-noise`,
-      siteName: t('metadata.title') || "ScanPro",
+      siteName: t('metadata.title') || "ImagePro",
     },
     alternates: {
       canonical: `/${lang}/image-tools/add-noise`,

@@ -36,26 +36,26 @@ export function Homepage() {
   const featuredTools = [
     {
       id: "make-transparent",
-      name: "Make PNG Transparent",
+      name: t("imageTools.makeTransparent.title") || "Make PNG Transparent",
       href: "/make-transparent",
       icon: <FileImage className="h-6 w-6 text-blue-500" />,
-      description: "Remove backgrounds by replacing colors with transparency",
+      description: t("imageTools.makeTransparent.description") || "Replace any color in a PNG file with transparency",
       color: "blue"
     },
     {
       id: "change-colors",
-      name: "Change Colors",
+      name: t("imageTools.changeColors.title") || "Change Colors",
       href: "/change-colors",
       icon: <Palette className="h-6 w-6 text-purple-500" />,
-      description: "Replace specific colors in your PNG images with new colors",
+      description: t("imageTools.changeColors.description") || "Replace specific colors in your PNG images with new colors",
       color: "purple"
     },
     {
       id: "compress-png",
-      name: "Compress PNG",
+      name: t("imageTools.compressPng.title") || "Compress PNG",
       href: "/compress",
       icon: <Download className="h-6 w-6 text-amber-500" />,
-      description: "Reduce PNG file sizes while maintaining quality",
+      description: t("imageTools.compressPng.description") || "Reduce PNG file sizes while maintaining quality",
       color: "amber"
     }
   ];
@@ -64,27 +64,27 @@ export function Homepage() {
   const toolCategories = [
     {
       id: "popular",
-      name: "Popular",
+      name: t("ui.popular") || "Popular",
       icon: <Star className="h-5 w-5" />
     },
     {
       id: "conversion",
-      name: "Conversion",
+      name: t("imageTools.categories.conversion") || "Conversion",
       icon: <ArrowRight className="h-5 w-5" />
     },
     {
       id: "editing",
-      name: "Editing",
+      name: t("imageTools.categories.editing") || "Editing",
       icon: <PencilRuler className="h-5 w-5" />
     },
     {
       id: "enhancement",
-      name: "Enhancement",
+      name: t("imageTools.categories.enhancement") || "Enhancement",
       icon: <Sparkles className="h-5 w-5" />
     },
     {
       id: "advanced",
-      name: "Advanced",
+      name: t("imageTools.categories.advanced") || "Advanced",
       icon: <MagicWandIcon className="h-5 w-5" />
     }
   ];
@@ -108,50 +108,50 @@ export function Homepage() {
     popular: [
       {
         id: "make-transparent",
-        name: "Make PNG Transparent",
+        name: t("imageTools.makeTransparent.title") || "Make PNG Transparent",
         href: "/make-transparent",
         icon: <FileImage className="h-5 w-5 text-blue-500" />,
-        description: "Remove backgrounds by replacing colors with transparency",
+        description: t("imageTools.makeTransparent.description") || "Remove backgrounds by replacing colors with transparency",
         color: "blue"
       },
       {
         id: "png-to-jpg",
-        name: "Convert PNG to JPG",
+        name: t("imageTools.pngToJpg.title") || "Convert PNG to JPG",
         href: "/png-to-jpg",
         icon: <Image className="h-5 w-5 text-blue-500" />,
-        description: "Convert PNG files to JPG format with adjustable quality",
+        description: t("imageTools.pngToJpg.description") || "Convert PNG files to JPG format with adjustable quality",
         color: "blue"
       },
       {
         id: "jpg-to-png",
-        name: "Convert JPG to PNG",
+        name: t("imageTools.jpgToPng.title") || "Convert JPG to PNG",
         href: "/jpg-to-png",
         icon: <Image className="h-5 w-5 text-blue-500" />,
-        description: "Convert JPG images to PNG format with transparency support",
+        description: t("imageTools.jpgToPng.description") || "Convert JPG images to PNG format with transparency support",
         color: "blue"
       },
       {
         id: "change-colors",
-        name: "Change Colors",
+        name: t("imageTools.changeColors.title") || "Change Colors",
         href: "/change-colors",
         icon: <Palette className="h-5 w-5 text-purple-500" />,
-        description: "Replace specific colors in your PNG images with new colors",
+        description: t("imageTools.changeColors.description") || "Replace specific colors in your PNG images with new colors",
         color: "purple"
       },
       {
         id: "compress-png",
-        name: "Compress PNG",
+        name: t("imageTools.compressPng.title") || "Compress PNG",
         href: "/compress",
         icon: <Download className="h-5 w-5 text-amber-500" />,
-        description: "Reduce PNG file sizes while maintaining quality",
+        description: t("imageTools.compressPng.description") || "Reduce PNG file sizes while maintaining quality",
         color: "amber"
       },
       {
         id: "resize",
-        name: "Resize Image",
+        name: t("imageTools.resize.title") || "Resize Image",
         href: "/resize",
         icon: <Image className="h-5 w-5 text-purple-500" />,
-        description: "Resize images to exact dimensions while preserving quality",
+        description: t("imageTools.resize.description") || "Resize images to exact dimensions while preserving quality",
         isNew: true,
         color: "purple"
       }
@@ -159,119 +159,119 @@ export function Homepage() {
     conversion: [
       {
         id: "make-transparent",
-        name: "Make PNG Transparent",
+        name: t("imageTools.makeTransparent.title") || "Make PNG Transparent",
         href: "/make-transparent",
         icon: <FileImage className="h-5 w-5 text-blue-500" />,
-        description: "Remove backgrounds by replacing colors with transparency",
+        description: t("imageTools.makeTransparent.description") || "Remove backgrounds by replacing colors with transparency",
         color: "blue"
       },
       {
         id: "png-to-jpg",
-        name: "Convert PNG to JPG",
+        name: t("imageTools.pngToJpg.title") || "Convert PNG to JPG",
         href: "/png-to-jpg",
         icon: <Image className="h-5 w-5 text-blue-500" />,
-        description: "Convert PNG files to JPG format with adjustable quality",
+        description: t("imageTools.pngToJpg.description") || "Convert PNG files to JPG format with adjustable quality",
         color: "blue"
       },
       {
         id: "jpg-to-png",
-        name: "Convert JPG to PNG",
+        name: t("imageTools.jpgToPng.title") || "Convert JPG to PNG",
         href: "/jpg-to-png",
         icon: <Image className="h-5 w-5 text-blue-500" />,
-        description: "Convert JPG images to PNG format with transparency support",
+        description: t("imageTools.jpgToPng.description") || "Convert JPG images to PNG format with transparency support",
         color: "blue"
       },
       {
         id: "png-to-webp",
-        name: "Convert PNG to WebP",
+        name: t("imageTools.pngToWebp.title") || "Convert PNG to WebP",
         href: "/png-to-webp",
         icon: <FileImage className="h-5 w-5 text-blue-500" />,
-        description: "Convert PNG images to WebP for better web performance",
+        description: t("imageTools.pngToWebp.description") || "Convert PNG images to WebP for better web performance",
         color: "blue"
       },
       {
         id: "webp-to-png",
-        name: "Convert WebP to PNG",
+        name: t("imageTools.webpToPng.title") || "Convert WebP to PNG",
         href: "/webp-to-png",
         icon: <FileImage className="h-5 w-5 text-blue-500" />,
-        description: "Convert WebP images to PNG format for better compatibility",
+        description: t("imageTools.webpToPng.description") || "Convert WebP images to PNG format for better compatibility",
         color: "blue"
       },
       {
         id: "svg-to-png",
-        name: "Convert SVG to PNG",
+        name: t("imageTools.svgToPng.title") || "Convert SVG to PNG",
         href: "/svg-to-png",
         icon: <FileImage className="h-5 w-5 text-blue-500" />,
-        description: "Convert vector SVG files to raster PNG images",
+        description: t("imageTools.svgToPng.description") || "Convert vector SVG files to raster PNG images",
         color: "blue"
       },
       {
         id: "png-to-base64",
-        name: "Convert PNG to Base64",
+        name: t("imageTools.pngToBase64.title") || "Convert PNG to Base64",
         href: "/png-to-base64",
         icon: <FileImage className="h-5 w-5 text-blue-500" />,
-        description: "Convert PNG images to base64 encoding for web embedding",
+        description: t("imageTools.pngToBase64.description") || "Convert PNG images to base64 encoding for web embedding",
         color: "blue"
       },
       {
         id: "base64-to-png",
-        name: "Convert Base64 to PNG",
+        name: t("imageTools.base64ToPng.title") || "Convert Base64 to PNG",
         href: "/base64-to-png",
         icon: <FileImage className="h-5 w-5 text-blue-500" />,
-        description: "Convert base64-encoded image strings back to PNG files",
+        description: t("imageTools.base64ToPng.description") || "Convert base64-encoded image strings back to PNG files",
         color: "blue"
       }
     ],
     editing: [
       {
         id: "change-colors",
-        name: "Change Colors",
+        name: t("imageTools.changeColors.title") || "Change Colors",
         href: "/change-colors",
         icon: <Palette className="h-5 w-5 text-purple-500" />,
-        description: "Replace specific colors in your PNG images with new colors",
+        description: t("imageTools.changeColors.description") || "Replace specific colors in your PNG images with new colors",
         color: "purple"
       },
       {
         id: "change-tone",
-        name: "Change Color Tone",
+        name: t("imageTools.changeTone.title") || "Change Color Tone",
         href: "/change-tone",
         icon: <Palette className="h-5 w-5 text-purple-500" />,
-        description: "Apply color tones and tints to your images for artistic effects",
+        description: t("imageTools.changeTone.description") || "Apply color tones and tints to your images for artistic effects",
         color: "purple"
       },
       {
         id: "resize",
-        name: "Resize Image",
+        name: t("imageTools.resize.title") || "Resize Image",
         href: "/resize",
         icon: <Image className="h-5 w-5 text-purple-500" />,
-        description: "Resize images to exact dimensions while preserving quality",
+        description: t("imageTools.resize.description") || "Resize images to exact dimensions while preserving quality",
         isNew: true,
         color: "purple"
       },
       {
         id: "crop",
-        name: "Crop Image",
+        name: t("imageTools.crop.title") || "Crop Image",
         href: "/crop",
         icon: <Crop className="h-5 w-5 text-purple-500" />,
-        description: "Crop images to remove unwanted areas and focus on important content",
+        description: t("imageTools.crop.description") || "Crop images to remove unwanted areas and focus on important content",
         isNew: true,
         color: "purple"
       },
       {
         id: "rotate",
-        name: "Rotate & Flip",
+        name: t("imageTools.rotate.title") || "Rotate & Flip",
         href: "/rotate",
         icon: <RotateCw className="h-5 w-5 text-purple-500" />,
-        description: "Rotate and flip images to the correct orientation",
+        description: t("imageTools.rotate.description") || "Rotate and flip images to the correct orientation",
         isNew: true,
         color: "purple"
       },
       {
         id: "add-text",
-        name: "Add Text to Image",
+        name: t("imageTools.addText.title") || "Add Text to Image",
         href: "/add-text",
         icon: <PenTool className="h-5 w-5 text-purple-500" />,
-        description: "Add custom text, captions, or watermarks to your images",
+        description: t("imageTools.addText.description") || "Add custom text, captions, or watermarks to your images",
         isNew: true,
         color: "purple"
       }
@@ -279,44 +279,44 @@ export function Homepage() {
     enhancement: [
       {
         id: "add-noise",
-        name: "Add Noise",
+        name: t("imageTools.noise.title") || "Add Noise",
         href: "/add-noise",
         icon: <Aperture className="h-5 w-5 text-green-500" />,
-        description: "Add film grain or noise effects to your images",
+        description: t("imageTools.noise.description") || "Add film grain or noise effects to your images",
         color: "green"
       },
       {
         id: "add-border",
-        name: "Add Border",
+        name: t("imageTools.addBorder.title") || "Add Border",
         href: "/add-border",
         icon: <Crop className="h-5 w-5 text-green-500" />,
-        description: "Add custom borders to your images with various styles and colors",
+        description: t("imageTools.addBorder.description") || "Add custom borders to your images with various styles and colors",
         isNew: true,
         color: "green"
       },
       {
         id: "filters",
-        name: "Apply Image Filters",
+        name: t("imageTools.filters.title") || "Apply Image Filters",
         href: "/filters",
         icon: <SlidersHorizontal className="h-5 w-5 text-green-500" />,
-        description: "Enhance images with professional filters like grayscale, sepia, and more",
+        description: t("imageTools.filters.description") || "Enhance images with professional filters like grayscale, sepia, and more",
         isNew: true,
         color: "green"
       },
       {
         id: "compress-png",
-        name: "Compress PNG",
+        name: t("imageTools.compressPng.title") || "Compress PNG",
         href: "/compress",
         icon: <Download className="h-5 w-5 text-amber-500" />,
-        description: "Reduce PNG file sizes while maintaining quality",
+        description: t("imageTools.compressPng.description") || "Reduce PNG file sizes while maintaining quality",
         color: "amber"
       },
       {
         id: "compress-jpg",
-        name: "Compress JPG",
+        name: t("imageTools.compressJpg.title") || "Compress JPG",
         href: "/compress-jpg",
         icon: <Download className="h-5 w-5 text-amber-500" />,
-        description: "Optimize JPG images with adjustable quality settings",
+        description: t("imageTools.compressJpg.description") || "Optimize JPG images with adjustable quality settings",
         isNew: true,
         color: "amber"
       }
@@ -324,28 +324,28 @@ export function Homepage() {
     advanced: [
       {
         id: "remove-background",
-        name: "Remove Background",
+        name: t("imageTools.removeBackground.title") || "Remove Background",
         href: "/remove-background",
         icon: <CloudOff className="h-5 w-5 text-indigo-500" />,
-        description: "Automatically remove backgrounds from photos and images",
+        description: t("imageTools.removeBackground.description") || "Automatically remove backgrounds from photos and images",
         isNew: true,
         color: "indigo"
       },
       {
         id: "images-to-pdf",
-        name: "Images to PDF",
+        name: t("imageTools.imagesToPdf.title") || "Images to PDF",
         href: "/images-to-pdf",
         icon: <FileText className="h-5 w-5 text-indigo-500" />,
-        description: "Convert multiple images to a single PDF document",
+        description: t("imageTools.imagesToPdf.description") || "Convert multiple images to a single PDF document",
         isNew: true,
         color: "indigo"
       },
       {
         id: "merge-images",
-        name: "Merge Images",
+        name: t("imageTools.mergeImages.title") || "Merge Images",
         href: "/merge",
         icon: <Layers className="h-5 w-5 text-indigo-500" />,
-        description: "Combine multiple images side by side or vertically",
+        description: t("imageTools.mergeImages.description") || "Combine multiple images side by side or vertically",
         isNew: true,
         color: "indigo"
       }

@@ -8,19 +8,19 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const lang = SUPPORTED_LANGUAGES.includes(paramLang as any) ? paramLang : "en";
   
   return {
-    title: "ScanPro - Professional Image Tools For Everyone",
+    title: "ImagePro - Professional Image Tools For Everyone",
     description: "Transform your images with our free online image tools. Edit, convert, enhance and optimize your images in seconds.",
     openGraph: {
-      title: "ScanPro - Professional Image Tools For Everyone",
+      title: "ImagePro - Professional Image Tools For Everyone",
       description: "Transform your images with our free online image tools. Edit, convert, enhance and optimize your images in seconds.",
       url: `/${lang}`,
-      siteName: "ScanPro",
+      siteName: "ImagePro",
       images: [
         {
           url: "/og-image.png",
           width: 1200,
           height: 630,
-          alt: "ScanPro Image Tools"
+          alt: "ImagePro Image Tools"
         }
       ],
       locale: lang === "id" ? "id_ID" : lang === "es" ? "es_ES" : "en_US",
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     twitter: {
       card: "summary_large_image",
-      title: "ScanPro - Professional Image Tools For Everyone",
+      title: "ImagePro - Professional Image Tools For Everyone",
       description: "Transform your images with our free online image tools. Edit, convert, enhance and optimize your images in seconds.",
       images: ["/og-image.png"],
     },

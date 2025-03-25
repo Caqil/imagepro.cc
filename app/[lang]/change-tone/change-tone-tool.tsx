@@ -66,30 +66,30 @@ export function ChangeToneTool() {
   const renderOptions = (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="preset">"Color Tone Preset"</Label>
+        <Label htmlFor="preset">Color Tone Preset</Label>
         <Select value={presetMode} onValueChange={handlePresetChange}>
           <SelectTrigger>
             <SelectValue placeholder="Select a preset" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="custom">"Custom Color"</SelectItem>
-            <SelectItem value="sepia">"Sepia"</SelectItem>
-            <SelectItem value="blue">"Cool Blue"</SelectItem>
-            <SelectItem value="green">"Forest Green"</SelectItem>
-            <SelectItem value="red">"Warm Red"</SelectItem>
-            <SelectItem value="purple">"Rich Purple"</SelectItem>
-            <SelectItem value="cyan">"Cyan"</SelectItem>
-            <SelectItem value="vintage">"Vintage"</SelectItem>
+            <SelectItem value="custom">Custom Color</SelectItem>
+            <SelectItem value="sepia">Sepia</SelectItem>
+            <SelectItem value="blue">Cool Blue</SelectItem>
+            <SelectItem value="green">Forest Green</SelectItem>
+            <SelectItem value="red">Warm Red</SelectItem>
+            <SelectItem value="purple">Rich Purple</SelectItem>
+            <SelectItem value="cyan">Cyan</SelectItem>
+            <SelectItem value="vintage">Vintage</SelectItem>
           </SelectContent>
         </Select>
-        <p className="text-xs text-muted-foreground">"Choose a preset or select \"Custom Color\" to define your own tone"
+        <p className="text-xs text-muted-foreground">Choose a preset or select \"Custom Color\" to define your own tone
         </p>
       </div>
 
       {presetMode === "custom" && (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Label htmlFor="tone-color">"Tone Color"</Label>
+            <Label htmlFor="tone-color">Tone Color</Label>
             <div 
               className="w-6 h-6 rounded-md border" 
               style={{ backgroundColor: toneColor }}
@@ -111,13 +111,13 @@ export function ChangeToneTool() {
               className="flex-1"
             />
           </div>
-          <p className="text-xs text-muted-foreground">"Select the color to tint your image with"
+          <p className="text-xs text-muted-foreground">Select the color to tint your image with
           </p>
         </div>
       )}
       
       <div className="space-y-2">
-        <Label htmlFor="intensity">"Effect Intensity": {intensity}%</Label>
+        <Label htmlFor="intensity">Effect Intensity": {intensity}%</Label>
         <Slider
           id="intensity"
           min={10}
@@ -126,7 +126,7 @@ export function ChangeToneTool() {
           value={[intensity]}
           onValueChange={(values) => setIntensity(values[0])}
         />
-        <p className="text-xs text-muted-foreground"> "Higher values create a stronger color effect, lower values are more subtle"
+        <p className="text-xs text-muted-foreground">Higher values create a stronger color effect, lower values are more subtle"
         </p>
       </div>
       
@@ -136,9 +136,9 @@ export function ChangeToneTool() {
           checked={preserveGrays}
           onCheckedChange={setPreserveGrays}
         />
-        <Label htmlFor="preserve-grays"> "Preserve grayscale colors"</Label>
+        <Label htmlFor="preserve-grays">Preserve grayscale colors</Label>
       </div>
-      <p className="text-xs text-muted-foreground"> "When enabled, preserves black, white, and gray areas in the original image"
+      <p className="text-xs text-muted-foreground"> When enabled, preserves black, white, and gray areas in the original image
       </p>
     </div>
   );
@@ -146,8 +146,8 @@ export function ChangeToneTool() {
   return (
     <div>
       <div className="mx-auto flex flex-col items-center text-center mb-8">
-        <h1 className="text-3xl font-bold"> "Change PNG Color Tone"</h1>
-        <p className="mt-2 text-muted-foreground">"Apply a color tone or tint to your PNG images for artistic effects"
+        <h1 className="text-3xl font-bold"> Change PNG Color Tone</h1>
+        <p className="mt-2 text-muted-foreground">Apply a color tone or tint to your PNG images for artistic effects
         </p>
       </div>
       
@@ -168,52 +168,52 @@ export function ChangeToneTool() {
       
       <div className="mt-12 space-y-6">
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">"What is Color Toning?"</h2>
+          <h2 className="text-xl font-medium mb-4">What is Color Toning?</h2>
           <div className="space-y-3">
-            <p className="text-sm text-muted-foreground">"Color toning (or tinting) is a technique that applies a color overlay to an image, shifting its overall color scheme toward a specific hue. This creates a cohesive look and can dramatically change the mood and feel of your images."
+            <p className="text-sm text-muted-foreground">Color toning (or tinting) is a technique that applies a color overlay to an image, shifting its overall color scheme toward a specific hue. This creates a cohesive look and can dramatically change the mood and feel of your images."
             </p>
-            <p className="text-sm text-muted-foreground">"Common examples include sepia tone (brownish) for vintage effects, blue tone for cool/night atmospheres, and warm tones (red/orange) for sunset or nostalgic feelings."
+            <p className="text-sm text-muted-foreground">Common examples include sepia tone (brownish) for vintage effects, blue tone for cool/night atmospheres, and warm tones (red/orange) for sunset or nostalgic feelings."
             </p>
           </div>
         </div>
         
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">"Popular Color Tone Effects"</h2>
+          <h2 className="text-xl font-medium mb-4">Popular Color Tone Effects</h2>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-2">
-              <h3 className="text-base font-medium"> "Sepia Tone"</h3>
-              <p className="text-sm text-muted-foreground"> "Creates a warm, brownish tone reminiscent of vintage photographs. Perfect for creating an aged, nostalgic feel."
+              <h3 className="text-base font-medium">Sepia Tone</h3>
+              <p className="text-sm text-muted-foreground">Creates a warm, brownish tone reminiscent of vintage photographs. Perfect for creating an aged, nostalgic feel.
               </p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-medium">"Blue/Cyan Tone"</h3>
-              <p className="text-sm text-muted-foreground"> "Creates a cool, calming atmosphere. Often used for night scenes, winter themes, or to evoke feelings of tranquility and serenity."
+              <h3 className="text-base font-medium">Blue/Cyan Tone</h3>
+              <p className="text-sm text-muted-foreground">Creates a cool, calming atmosphere. Often used for night scenes, winter themes, or to evoke feelings of tranquility and serenity.
               </p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-medium"> "Green Tone"</h3>
-              <p className="text-sm text-muted-foreground"> "Adds a natural, earthy feel. Great for environmental themes, forest scenes, or creating a matrix-like digital effect at higher intensities."
+              <h3 className="text-base font-medium">Green Tone</h3>
+              <p className="text-sm text-muted-foreground">Adds a natural, earthy feel. Great for environmental themes, forest scenes, or creating a matrix-like digital effect at higher intensities.
               </p>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-medium">"Red/Orange Tone"</h3>
+              <h3 className="text-base font-medium">Red/Orange Tone</h3>
               <p className="text-sm text-muted-foreground">
-                "Adds warmth and energy to images. Useful for sunset effects, creating a sense of warmth, or adding dramatic tension to dark scenes."
+                "Adds warmth and energy to images. Useful for sunset effects, creating a sense of warmth, or adding dramatic tension to dark scenes.
               </p>
             </div>
           </div>
         </div>
         
         <div className="border rounded-lg p-4">
-          <h2 className="text-xl font-medium mb-4">"Tips for Best Results"</h2>
+          <h2 className="text-xl font-medium mb-4">Tips for Best Results</h2>
           <div className="space-y-3">
             <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-              <li>"For subtle effects, use lower intensity values (10-30%)"</li>
-              <li>"The \"Preserve grayscale\" option helps maintain contrast in your image by keeping black and white areas intact"</li>
-              <li>"Try different presets to find the perfect mood for your image"</li>
-              <li>"For dramatic effects, use higher intensity values (70-100%)"</li>
-              <li>"Complementary colors (opposite on the color wheel) can create interesting contrasts"</li>
-              <li>"PNG transparency is preserved during color tone adjustment"</li>
+              <li>For subtle effects, use lower intensity values (10-30%)</li>
+              <li>The \"Preserve grayscale\" option helps maintain contrast in your image by keeping black and white areas intact</li>
+              <li>Try different presets to find the perfect mood for your image</li>
+              <li>For dramatic effects, use higher intensity values (70-100%)</li>
+              <li>Complementary colors (opposite on the color wheel) can create interesting contrasts</li>
+              <li>PNG transparency is preserved during color tone adjustment</li>
             </ul>
           </div>
         </div>

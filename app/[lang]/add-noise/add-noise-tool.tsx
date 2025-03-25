@@ -25,7 +25,7 @@ export function AddNoiseTool() {
     <div className="space-y-6">
       <div className="space-y-2">
         <div className="flex justify-between items-center">
-          <Label htmlFor="noise-amount">"Noise Amount": {noiseAmount}%</Label>
+          <Label htmlFor="noise-amount">Noise Amount: {noiseAmount}%</Label>
         </div>
         <Slider
           id="noise-amount"
@@ -36,12 +36,12 @@ export function AddNoiseTool() {
           onValueChange={(values) => setNoiseAmount(values[0])}
         />
         <p className="text-xs text-muted-foreground">
-          "Higher values create more noticeable noise. For subtle effects, use values below 30%."
+          Higher values create more noticeable noise. For subtle effects, use values below 30%.
         </p>
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="noise-type">"Noise Type"</Label>
+        <Label htmlFor="noise-type">Noise Type</Label>
         <Select
           value={noiseType}
           onValueChange={(value) => setNoiseType(value)}
@@ -50,12 +50,12 @@ export function AddNoiseTool() {
             <SelectValue placeholder="Select noise type"/>
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="gaussian">"Gaussian (Smooth)"</SelectItem>
-            <SelectItem value="salt-pepper">"Salt & Pepper (Speckles)"</SelectItem>
+            <SelectItem value="gaussian">Gaussian (Smooth)</SelectItem>
+            <SelectItem value="salt-pepper">Salt & Pepper (Speckles)</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-xs text-muted-foreground">
-          "Gaussian noise adds subtle grain, while Salt & Pepper adds random white and black pixels."
+          Gaussian noise adds subtle grain, while Salt & Pepper adds random white and black pixels.
         </p>
       </div>
       
@@ -65,7 +65,7 @@ export function AddNoiseTool() {
           checked={monochrome}
           onCheckedChange={setMonochrome}
         />
-        <Label htmlFor="monochrome">"Monochrome Noise"</Label>
+        <Label htmlFor="monochrome">Monochrome Noise</Label>
       </div>
       <p className="text-xs text-muted-foreground">
        "When enabled, noise will be black and white only. When disabled, colored noise will be used."
@@ -76,9 +76,9 @@ export function AddNoiseTool() {
   return (
     <div>
       <div className="mx-auto flex flex-col items-center text-center mb-8">
-        <h1 className="text-3xl font-bold">"Add Noise to PNG"</h1>
+        <h1 className="text-3xl font-bold">Add Noise to PNG</h1>
         <p className="mt-2 text-muted-foreground">
-          "Add film grain or noise effects to your PNG images for artistic styling"
+          Add film grain or noise effects to your PNG images for artistic styling
         </p>
       </div>
       

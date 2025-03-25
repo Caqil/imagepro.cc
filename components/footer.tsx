@@ -80,7 +80,7 @@ export function Footer() {
             </LanguageLink>
           </nav>
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} ScanPro. All rights reserved.
+            &copy; {new Date().getFullYear()} ImagePro. All rights reserved.
           </p>
         </div>
       </div>

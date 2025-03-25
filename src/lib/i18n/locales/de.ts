@@ -1,6 +1,5 @@
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
-
   imageTools: {
     title: "Bildwerkzeuge",
     description: "Kostenlose Online-Tools zum Konvertieren, Bearbeiten und Transformieren Ihrer Bilder",
@@ -13,129 +12,129 @@ export default {
     },
     compressPng: {
       title: "PNG komprimieren",
-      description: "PNG-Dateigrößen reduzieren bei gleichbleibender Qualität",
+      description: "Reduzieren Sie die Dateigröße von PNG-Dateien bei gleichbleibender Qualität",
       metaTitle: "PNG-Bilder komprimieren | Bildwerkzeuge",
-      metaDescription: "PNG-Dateigrößen reduzieren bei gleichbleibender Qualität für schnellere Website-Ladezeiten und effiziente Speicherung",
+      metaDescription: "Reduzieren Sie die Dateigröße von PNG-Dateien bei gleichbleibender Qualität für schnellere Website-Ladezeiten und effiziente Speicherung",
       metaKeywords: "PNG komprimieren, Bildgröße reduzieren, Bilder optimieren, Bildkompression, verlustfreie Kompression, Dateigrößenreduktion"
     },
     makeTransparent: {
       title: "PNG transparent machen",
-      description: "Jede Farbe in einer PNG-Datei durch Transparenz ersetzen",
+      description: "Ersetzen Sie jede Farbe in einer PNG-Datei durch Transparenz",
       metaTitle: "PNG transparent machen | Bildwerkzeuge",
-      metaDescription: "Schnell jede Farbe in einer PNG-Datei durch Transparenz ersetzen",
+      metaDescription: "Ersetzen Sie schnell jede Farbe in einer PNG-Datei durch Transparenz",
       metaKeywords: "Hintergrund entfernen, transparentes PNG, Farbersetzung, Bildbearbeitung, Hintergrundentfernung, transparente Bilder"
     },
     pngToJpg: {
       title: "PNG in JPG umwandeln",
-      description: "PNG-Bilder in das JPG-Format mit anpassbaren Qualitätseinstellungen umwandeln",
+      description: "Konvertieren Sie PNG-Bilder in das JPG-Format mit anpassbaren Qualitätseinstellungen",
       metaTitle: "PNG in JPG umwandeln | Bildwerkzeuge",
-      metaDescription: "PNG-Bilder in das JPG-Format mit einstellbarer Qualität umwandeln",
+      metaDescription: "Konvertieren Sie PNG-Bilder in das JPG-Format mit einstellbarer Qualität",
       metaKeywords: "PNG zu JPG, Bildkonvertierung, Bildformat, verlustbehaftete Kompression, Bildqualität"
     },
     jpgToPng: {
       title: "JPG in PNG umwandeln",
-      description: "JPG-Bilder in das PNG-Format mit Unterstützung für Transparenz umwandeln",
+      description: "Konvertieren Sie JPG-Bilder in das PNG-Format mit Unterstützung für Transparenz",
       metaTitle: "JPG in PNG umwandeln | Bildwerkzeuge",
-      metaDescription: "JPG-Bilder in das PNG-Format mit verlustfreier Qualität umwandeln",
+      metaDescription: "Konvertieren Sie JPG-Bilder in das PNG-Format mit verlustfreier Qualität",
       metaKeywords: "JPG zu PNG, Bildkonvertierung, Transparenz, verlustfreies Format, Bildqualität"
     },
     pngToWebp: {
       title: "PNG in WebP umwandeln",
-      description: "PNG-Bilder in das WebP-Format für bessere Web-Performance umwandeln",
+      description: "Konvertieren Sie PNG-Bilder in das WebP-Format für bessere Web-Performance",
       metaTitle: "PNG in WebP umwandeln | Bildwerkzeuge",
-      metaDescription: "PNG-Bilder in das WebP-Format für kleinere Dateigrößen umwandeln",
+      metaDescription: "Konvertieren Sie PNG-Bilder in das WebP-Format für kleinere Dateigrößen",
       metaKeywords: "PNG zu WebP, Bildkonvertierung, Web-Optimierung, Bildkompression"
     },
     webpToPng: {
       title: "WebP in PNG umwandeln",
-      description: "WebP-Bilder in das PNG-Format für bessere Kompatibilität umwandeln",
+      description: "Konvertieren Sie WebP-Bilder in das PNG-Format für bessere Kompatibilität",
       metaTitle: "WebP in PNG umwandeln | Bildwerkzeuge",
-      metaDescription: "WebP-Bilder in das PNG-Format mit voller Kompatibilität umwandeln",
+      metaDescription: "Konvertieren Sie WebP-Bilder in das PNG-Format mit voller Kompatibilität",
       metaKeywords: "WebP zu PNG, Bildkonvertierung, Bildformat, Kompatibilität"
     },
     svgToPng: {
       title: "SVG in PNG umwandeln",
-      description: "Vektor-SVG-Dateien in Raster-PNG-Bilder umwandeln",
+      description: "Konvertieren Sie Vektor-SVG-Dateien in Raster-PNG-Bilder",
       metaTitle: "SVG in PNG umwandeln | Bildwerkzeuge",
-      metaDescription: "Vektor-SVG-Grafiken in Raster-PNG-Bilder mit benutzerdefinierten Abmessungen umwandeln",
+      metaDescription: "Konvertieren Sie Vektor-SVG-Grafiken in Raster-PNG-Bilder mit benutzerdefinierten Abmessungen",
       metaKeywords: "SVG zu PNG, Vektor zu Raster, Bildkonvertierung, Grafikdesign"
     },
     pngToBase64: {
       title: "PNG in Base64 umwandeln",
-      description: "PNG-Bilder in Base64-Codierung für die Einbettung in Webseiten umwandeln",
+      description: "Konvertieren Sie PNG-Bilder in Base64-Codierung für die Einbettung in Webseiten",
       metaTitle: "PNG in Base64 umwandeln | Bildwerkzeuge",
-      metaDescription: "PNG-Bilder in Base64-Zeichenfolgen für die Web-Einbettung umwandeln",
+      metaDescription: "Konvertieren Sie PNG-Bilder in Base64-Strings für die Web-Einbettung",
       metaKeywords: "PNG zu Base64, Bildcodierung, Webentwicklung, Bildeinbettung"
     },
     base64ToPng: {
       title: "Base64 in PNG umwandeln",
-      description: "Base64-codierte Bildzeichenfolgen wieder in PNG-Dateien umwandeln",
+      description: "Konvertieren Sie Base64-codierte Bildstrings zurück in PNG-Dateien",
       metaTitle: "Base64 in PNG umwandeln | Bildwerkzeuge",
-      metaDescription: "Base64-Bildzeichenfolgen wieder in PNG-Bilddateien umwandeln",
+      metaDescription: "Konvertieren Sie Base64-Bildstrings zurück in PNG-Bilddateien",
       metaKeywords: "Base64 zu PNG, Bilddecodierung, Webentwicklung, Bildkonvertierung"
     },
     changeColors: {
       title: "Farben in PNG ändern",
-      description: "Bestimmte Farben in PNG-Bildern durch neue Farben ersetzen",
+      description: "Ersetzen Sie bestimmte Farben in PNG-Bildern durch neue Farben",
       metaTitle: "Farben in PNG ändern | Bildwerkzeuge",
-      metaDescription: "Bestimmte Farben in PNG-Bildern einfach durch neue Farben ersetzen",
+      metaDescription: "Ersetzen Sie einfach bestimmte Farben in PNG-Bildern durch neue Farben",
       metaKeywords: "Bildfarben ändern, Farbersetzung, PNG-Bearbeitung, Bildfarbwechsler, Farbtausch"
     },
     changeTone: {
       title: "Farbton ändern",
-      description: "Farbnuancen und Tönungen auf Ihre Bilder für künstlerische Effekte anwenden",
+      description: "Wenden Sie Farbtöne und Tönungen auf Ihre Bilder an für künstlerische Effekte",
       metaTitle: "PNG-Farbton ändern | Bildwerkzeuge",
-      metaDescription: "Farbnuancen und Tönungen auf Ihre PNG-Bilder für künstlerische Effekte anwenden",
+      metaDescription: "Wenden Sie Farbtöne und Tönungen auf Ihre PNG-Bilder an für künstlerische Effekte",
       metaKeywords: "Farbton, Bildtönung, künstlerische Effekte, Farbüberlagerung, Fotofilter"
     },
     addNoise: {
       title: "Rauschen zu PNG hinzufügen",
-      description: "Filmenrauschen oder Effekte zu Ihren PNG-Bildern für künstlerisches Styling hinzufügen",
+      description: "Fügen Sie Filmkörnigkeit oder Rauscheffekte zu Ihren PNG-Bildern hinzu für künstlerische Gestaltung",
       metaTitle: "Rauschen zu PNG hinzufügen | Bildwerkzeuge",
-      metaDescription: "Filmenrauschen oder Effekte zu Ihren PNG-Bildern für künstlerisches Styling hinzufügen",
-      metaKeywords: "Rauschen hinzufügen, Filmenrauschen, Bildtextur, künstlerischer Filter, Vintage-Fotoeffekt"
+      metaDescription: "Fügen Sie Filmkörnigkeit oder Rauscheffekte zu Ihren PNG-Bildern hinzu für künstlerische Gestaltung",
+      metaKeywords: "Rauschen hinzufügen, Filmkörnigkeit, Bildtextur, künstlerischer Filter, Vintage-Fotoeffekt"
     },
     resize: {
       title: "Bildgröße ändern",
-      description: "Bilder auf exakte Abmessungen ändern und dabei die Qualität erhalten",
+      description: "Ändern Sie die Größe von Bildern auf exakte Maße bei gleichbleibender Qualität",
       metaTitle: "Bilder skalieren | Bildwerkzeuge",
-      metaDescription: "Ihre Bilder einfach auf exakte Abmessungen skalieren und dabei die Qualität erhalten",
+      metaDescription: "Ändern Sie einfach die Größe Ihrer Bilder auf exakte Maße bei gleichbleibender Qualität",
       metaKeywords: "Bildgröße ändern, Bildgröße anpassen, Bild skalieren, Bildabmessungen, Bildskalierung"
     },
     rotate: {
       title: "Drehen & Spiegeln",
-      description: "Bilder drehen und spiegeln, um die richtige Ausrichtung zu erhalten",
+      description: "Drehen und spiegeln Sie Bilder in die richtige Ausrichtung",
       metaTitle: "Bilder drehen & spiegeln | Bildwerkzeuge",
-      metaDescription: "Bilder einfach in jeden Winkel drehen und horizontal oder vertikal spiegeln",
-      metaKeywords: "Bild drehen, Bild spiegeln, Bildausrichtung, Bild wenden, vertikales Spiegeln"
+      metaDescription: "Drehen Sie Bilder einfach in jeden Winkel und spiegeln Sie sie horizontal oder vertikal",
+      metaKeywords: "Bild drehen, Bild spiegeln, Bildausrichtung, Bild wenden, vertikale Spiegelung"
     },
     crop: {
       title: "Bild zuschneiden",
-      description: "Bilder zuschneiden, um unerwünschte Bereiche zu entfernen und auf wichtige Inhalte zu fokussieren",
+      description: "Schneiden Sie Bilder zu, um unerwünschte Bereiche zu entfernen und wichtige Inhalte hervorzuheben",
       metaTitle: "Bilder zuschneiden | Bildwerkzeuge",
-      metaDescription: "Bilder zuschneiden, um unerwünschte Bereiche zu entfernen und die Komposition zu verbessern",
+      metaDescription: "Schneiden Sie Bilder zu, um unerwünschte Bereiche zu entfernen und die Komposition zu verbessern",
       metaKeywords: "Bild zuschneiden, Bildbeschneidung, Hintergrund entfernen, Bildkomposition"
     },
     addText: {
       title: "Text zu Bild hinzufügen",
-      description: "Benutzerdefinierten Text, Bildunterschriften oder Wasserzeichen zu Ihren Bildern hinzufügen",
+      description: "Fügen Sie benutzerdefinierten Text, Beschriftungen oder Wasserzeichen zu Ihren Bildern hinzu",
       metaTitle: "Text zu Bildern hinzufügen | Bildwerkzeuge",
-      metaDescription: "Benutzerdefinierten Text, Bildunterschriften und Wasserzeichen mit einfachen Formatierungsoptionen zu Ihren Bildern hinzufügen",
-      metaKeywords: "Text zu Bild hinzufügen, Bildunterschrift, Wasserzeichen, Texteinblendung, Bildanmerkung"
+      metaDescription: "Fügen Sie benutzerdefinierten Text, Beschriftungen und Wasserzeichen zu Ihren Bildern mit einfachen Formatierungsoptionen hinzu",
+      metaKeywords: "Text zu Bild hinzufügen, Bildbeschriftung, Wasserzeichen, Textoverlagerung, Bildanmerkung"
     },
     addBorder: {
       title: "Rahmen hinzufügen",
-      description: "Benutzerdefinierte Rahmen in verschiedenen Stilen und Farben zu Ihren Bildern hinzufügen",
+      description: "Fügen Sie benutzerdefinierte Rahmen zu Ihren Bildern mit verschiedenen Stilen und Farben hinzu",
       metaTitle: "Rahmen zu Bildern hinzufügen | Bildwerkzeuge",
-      metaDescription: "Ihre Bilder mit benutzerdefinierten Rahmen, Umrandungen und Effekten verbessern",
-      metaKeywords: "Bildrahmen hinzufügen, Fotorahmen, Bildumrandung, Rahmenstil, Bildverbesserung"
+      metaDescription: "Verbessern Sie Ihre Bilder mit benutzerdefinierten Rahmen, Umrandungen und Effekten",
+      metaKeywords: "Bildrahmen hinzufügen, Fotorahmen, Bildumrahmung, Rahmenstil, Bildverbesserung"
     },
     addWatermark: {
       title: "Wasserzeichen hinzufügen",
-      description: "Text- oder Bildwasserzeichen hinzufügen, um Ihre Fotos zu schützen",
+      description: "Fügen Sie Text- oder Bildwasserzeichen hinzu, um Ihre Fotos zu schützen",
       metaTitle: "Wasserzeichen zu Bildern hinzufügen | Bildwerkzeuge",
-      metaDescription: "Text- oder Bildwasserzeichen hinzufügen, um Ihre Bilder zu schützen und zu markieren",
-      metaKeywords: "Wasserzeichen hinzufügen, Bildschutz, Branding, Urheberrecht, Bildsicherheit"
+      metaDescription: "Fügen Sie Text- oder Bildwasserzeichen hinzu, um Ihre Bilder zu schützen und zu markieren",
+      metaKeywords: "Wasserzeichen hinzufügen, Bildschutz, Markenbildung, Urheberrecht, Bildsicherheit"
     }
   }
 }

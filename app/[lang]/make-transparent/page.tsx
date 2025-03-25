@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: "Make a PNG Transparent | Image Tools",
       description: "Quickly replace any color in a PNG file with transparency",
       url: `/${lang}/image-tools/make-transparent`,
-      siteName: "ScanPro",
+      siteName: "ImagePro",
     },
     alternates: {
       canonical: `/${lang}/image-tools/make-transparent`,

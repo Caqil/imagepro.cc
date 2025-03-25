@@ -139,18 +139,18 @@ export function AddBorderTool() {
   const renderOptions = (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="preset">"Border Presets"</Label>
+        <Label htmlFor="preset">Border Presets</Label>
         <Select onValueChange={applyPreset}>
           <SelectTrigger id="preset">
             <SelectValue placeholder="Select a preset style" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="simple">"Simple Border"</SelectItem>
-            <SelectItem value="rounded">"Rounded Border"</SelectItem>
-            <SelectItem value="polaroid">"Polaroid Style"</SelectItem>
-            <SelectItem value="gradient">"Gradient Border"</SelectItem>
-            <SelectItem value="frame">"Picture Frame"</SelectItem>
-            <SelectItem value="vintage">"Vintage Frame"</SelectItem>
+            <SelectItem value="simple">Simple Border</SelectItem>
+            <SelectItem value="rounded">Rounded Border</SelectItem>
+            <SelectItem value="polaroid">Polaroid Style</SelectItem>
+            <SelectItem value="gradient">Gradient Border</SelectItem>
+            <SelectItem value="frame">Picture Frame</SelectItem>
+            <SelectItem value="vintage">Vintage Frame</SelectItem>
           </SelectContent>
         </Select>
         <p className="text-xs text-muted-foreground">
@@ -160,15 +160,15 @@ export function AddBorderTool() {
       
       <Tabs defaultValue="basic" className="w-full">
         <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="basic">"Basic"</TabsTrigger>
-          <TabsTrigger value="advanced">"Advanced"</TabsTrigger>
-          <TabsTrigger value="effects">"Effects"</TabsTrigger>
+          <TabsTrigger value="basic">Basic</TabsTrigger>
+          <TabsTrigger value="advanced">Advanced</TabsTrigger>
+          <TabsTrigger value="effects">Effects</TabsTrigger>
         </TabsList>
         
         <TabsContent value="basic" className="space-y-4 mt-4">
           <div className="space-y-2">
             <div className="flex justify-between">
-              <Label htmlFor="border-width">"Border Width": {borderWidth}px</Label>
+              <Label htmlFor="border-width">Border Width": {borderWidth}px</Label>
             </div>
             <Slider
               id="border-width"
@@ -181,7 +181,7 @@ export function AddBorderTool() {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="border-color">"Border Color"</Label>
+            <Label htmlFor="border-color">Border Color</Label>
             <div className="flex gap-2">
               <input
                 type="color"
@@ -200,7 +200,7 @@ export function AddBorderTool() {
           
           <div className="space-y-2">
             <div className="flex justify-between">
-              <Label htmlFor="border-radius">"Corner Radius": {borderRadius}px</Label>
+              <Label htmlFor="border-radius">Corner Radius": {borderRadius}px</Label>
             </div>
             <Slider
               id="border-radius"
@@ -213,23 +213,23 @@ export function AddBorderTool() {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="border-style">"Border Style"</Label>
+            <Label htmlFor="border-style">Border Style</Label>
             <Select value={borderStyle} onValueChange={setBorderStyle}>
               <SelectTrigger id="border-style">
                 <SelectValue placeholder="Select border style" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="solid">"Solid"</SelectItem>
-                <SelectItem value="dashed">"Dashed"</SelectItem>
-                <SelectItem value="dotted">"Dotted"</SelectItem>
-                <SelectItem value="double">"Double"</SelectItem>
+                <SelectItem value="solid">Solid</SelectItem>
+                <SelectItem value="dashed">Dashed</SelectItem>
+                <SelectItem value="dotted">Dotted</SelectItem>
+                <SelectItem value="double">Double</SelectItem>
               </SelectContent>
             </Select>
           </div>
           
           <div className="space-y-2">
             <div className="flex justify-between">
-              <Label htmlFor="padding">"Image Padding": {padding}px</Label>
+              <Label htmlFor="padding">Image Padding": {padding}px</Label>
             </div>
             <Slider
               id="padding"
@@ -249,13 +249,13 @@ export function AddBorderTool() {
               checked={useGradient}
               onCheckedChange={setUseGradient}
             />
-            <Label htmlFor="use-gradient">"Use Gradient Border"</Label>
+            <Label htmlFor="use-gradient">Use Gradient Border</Label>
           </div>
           
           {useGradient && (
             <div className="space-y-4 pl-6">
               <div className="space-y-2">
-                <Label htmlFor="gradient-type">"Gradient Type"</Label>
+                <Label htmlFor="gradient-type">Gradient Type</Label>
                 <Select value={gradientType} onValueChange={setGradientType}>
                   <SelectTrigger id="gradient-type">
                     <SelectValue placeholder="Select gradient type" />
@@ -270,7 +270,7 @@ export function AddBorderTool() {
               {gradientType === "linear" && (
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <Label htmlFor="gradient-angle">"Angle": {gradientAngle}°</Label>
+                    <Label htmlFor="gradient-angle">Angle": {gradientAngle}°</Label>
                   </div>
                   <Slider
                     id="gradient-angle"
@@ -284,7 +284,7 @@ export function AddBorderTool() {
               )}
               
               <div className="space-y-2">
-                <Label htmlFor="gradient-color-1"> "Color 1"</Label>
+                <Label htmlFor="gradient-color-1"> "Color 1</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -302,7 +302,7 @@ export function AddBorderTool() {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="gradient-color-2">"Color 2"</Label>
+                <Label htmlFor="gradient-color-2">Color 2</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -327,14 +327,14 @@ export function AddBorderTool() {
               checked={useFrame}
               onCheckedChange={setUseFrame}
             />
-            <Label htmlFor="use-frame">"Add Inner Frame"</Label>
+            <Label htmlFor="use-frame">Add Inner Frame</Label>
           </div>
           
           {useFrame && (
             <div className="space-y-4 pl-6">
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <Label htmlFor="frame-width">"Frame Width": {frameWidth}px</Label>
+                  <Label htmlFor="frame-width">Frame Width": {frameWidth}px</Label>
                 </div>
                 <Slider
                   id="frame-width"
@@ -347,7 +347,7 @@ export function AddBorderTool() {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="frame-color">"Frame Color"</Label>
+                <Label htmlFor="frame-color">Frame Color</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -374,13 +374,13 @@ export function AddBorderTool() {
               checked={useShadow}
               onCheckedChange={setUseShadow}
             />
-            <Label htmlFor="use-shadow">"Add Drop Shadow"</Label>
+            <Label htmlFor="use-shadow">Add Drop Shadow</Label>
           </div>
           
           {useShadow && (
             <div className="space-y-4 pl-6">
               <div className="space-y-2">
-                <Label htmlFor="shadow-color">"Shadow Color"</Label>
+                <Label htmlFor="shadow-color">Shadow Color</Label>
                 <div className="flex gap-2">
                   <input
                     type="color"
@@ -399,7 +399,7 @@ export function AddBorderTool() {
               
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <Label htmlFor="shadow-blur">"Blur": {shadowBlur}px</Label>
+                  <Label htmlFor="shadow-blur">Blur": {shadowBlur}px</Label>
                 </div>
                 <Slider
                   id="shadow-blur"
@@ -413,7 +413,7 @@ export function AddBorderTool() {
               
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="shadow-offset-x">"Horizontal Offset": {shadowOffsetX}px</Label>
+                  <Label htmlFor="shadow-offset-x">Horizontal Offset": {shadowOffsetX}px</Label>
                   <Slider
                     id="shadow-offset-x"
                     min={-50}
@@ -424,7 +424,7 @@ export function AddBorderTool() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="shadow-offset-y">"Vertical Offset": {shadowOffsetY}px</Label>
+                  <Label htmlFor="shadow-offset-y">Vertical Offset": {shadowOffsetY}px</Label>
                   <Slider
                     id="shadow-offset-y"
                     min={-50}
@@ -445,7 +445,7 @@ export function AddBorderTool() {
   return (
     <div>
       <div className="mx-auto flex flex-col items-center text-center mb-8">
-        <h1 className="text-3xl font-bold">"Add Border to Image"</h1>
+        <h1 className="text-3xl font-bold">Add Border to Image</h1>
         <p className="mt-2 text-muted-foreground">
           "Enhance your images with custom borders, frames, and effects"
         </p>

@@ -14,13 +14,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: "Image Tools - Edit, Convert, Optimize & Enhance Images Online",
       description: "Free online image tools to convert, compress, edit and transform your images. No registration required.",
       url: `/${lang}/image-tools`,
-      siteName: "ScanPro",
+      siteName: "ImagePro",
       images: [
         {
           url: "/og-image-tools.png",
           width: 1200,
           height: 630,
-          alt: "ScanPro Image Tools"
+          alt: "ImagePro Image Tools"
         }
       ],
       locale: lang === "id" ? "id_ID" : lang === "es" ? "es_ES" : "en_US",

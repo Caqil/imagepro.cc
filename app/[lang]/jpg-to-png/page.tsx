@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: "Convert JPG to PNG | Image Tools",
       description: "Quickly convert a JPEG image to a PNG image with transparency support",
       url: `/${lang}/image-tools/jpg-to-png`,
-      siteName: "ScanPro",
+      siteName: "ImagePro",
     },
     alternates: {
       canonical: `/${lang}/image-tools/jpg-to-png`,

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: "Convert PNG to WebP | Image Tools",
       description: "Quickly convert PNG images to WebP for better web performance and smaller file sizes",
       url: `/${lang}/image-tools/png-to-webp`,
-      siteName: "ScanPro",
+      siteName: "ImagePro",
     },
     alternates: {
       canonical: `/${lang}/image-tools/png-to-webp`,

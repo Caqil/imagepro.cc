@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: "Convert PNG to Base64 | Image Tools",
       description: "Convert PNG images to Base64 encoded strings for embedding in websites and applications",
       url: `/${lang}/image-tools/png-to-base64`,
-      siteName: "ScanPro",
+      siteName: "ImagePro",
     },
     alternates: {
       canonical: `/${lang}/image-tools/png-to-base64`,

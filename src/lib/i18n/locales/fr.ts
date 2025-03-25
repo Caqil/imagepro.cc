@@ -1,6 +1,5 @@
 /* eslint import/no-anonymous-default-export: [2, {"allowObject": true}] */
 export default {
-  
     imageTools: {
         title: "Outils d'image",
         description: "Outils en ligne gratuits pour convertir, éditer et transformer vos images",
@@ -16,7 +15,7 @@ export default {
             description: "Réduire la taille des fichiers PNG tout en maintenant la qualité",
             metaTitle: "Compresser des images PNG | Outils d'image",
             metaDescription: "Réduire la taille des fichiers PNG tout en maintenant la qualité pour un chargement plus rapide des sites web et un stockage efficace",
-            metaKeywords: "compresser PNG, réduire la taille d'image, optimiser les images, compression d'image, compression sans perte, réduction de taille de fichier"
+            metaKeywords: "compresser PNG, réduire la taille d'image, optimiser les images, compression d'image, compression sans perte, réduction de la taille de fichier"
         },
         makeTransparent: {
             title: "Rendre un PNG transparent",
@@ -29,7 +28,7 @@ export default {
             title: "Convertir PNG en JPG",
             description: "Convertir des images PNG au format JPG avec des paramètres de qualité personnalisables",
             metaTitle: "Convertir PNG en JPG | Outils d'image",
-            metaDescription: "Convertir des images PNG au format JPG avec une qualité ajustable",
+            metaDescription: "Convertir des images PNG au format JPG avec une qualité réglable",
             metaKeywords: "PNG en JPG, conversion d'image, format d'image, compression avec perte, qualité d'image"
         },
         jpgToPng: {
@@ -57,8 +56,8 @@ export default {
             title: "Convertir SVG en PNG",
             description: "Convertir des fichiers SVG vectoriels en images PNG raster",
             metaTitle: "Convertir SVG en PNG | Outils d'image",
-            metaDescription: "Convertir des graphiques vectoriels SVG en images PNG raster avec des dimensions personnalisées",
-            metaKeywords: "SVG en PNG, vectoriel en raster, conversion d'image, design graphique"
+            metaDescription: "Convertir des graphiques SVG vectoriels en images PNG raster avec des dimensions personnalisées",
+            metaKeywords: "SVG en PNG, vecteur en raster, conversion d'image, design graphique"
         },
         pngToBase64: {
             title: "Convertir PNG en Base64",
@@ -71,22 +70,22 @@ export default {
             title: "Convertir Base64 en PNG",
             description: "Convertir des chaînes d'images encodées en Base64 en fichiers PNG",
             metaTitle: "Convertir Base64 en PNG | Outils d'image",
-            metaDescription: "Convertir des chaînes d'images Base64 en fichiers d'image PNG",
+            metaDescription: "Convertir des chaînes d'images Base64 en fichiers PNG",
             metaKeywords: "Base64 en PNG, décodage d'image, développement web, conversion d'image"
         },
         changeColors: {
             title: "Changer les couleurs dans PNG",
-            description: "Remplacer des couleurs spécifiques dans des images PNG par de nouvelles couleurs",
+            description: "Remplacer des couleurs spécifiques dans les images PNG par de nouvelles couleurs",
             metaTitle: "Changer les couleurs dans PNG | Outils d'image",
-            metaDescription: "Remplacer facilement des couleurs spécifiques dans des images PNG par de nouvelles couleurs",
+            metaDescription: "Remplacer facilement des couleurs spécifiques dans les images PNG par de nouvelles couleurs",
             metaKeywords: "changer les couleurs d'image, remplacement de couleur, édition PNG, changeur de couleur d'image, échange de couleurs"
         },
         changeTone: {
             title: "Changer la tonalité des couleurs",
-            description: "Appliquer des tons et des teintes de couleur à vos images pour des effets artistiques",
+            description: "Appliquer des tons et des teintes à vos images pour des effets artistiques",
             metaTitle: "Changer la tonalité des couleurs PNG | Outils d'image",
-            metaDescription: "Appliquer des tons et des teintes de couleur à vos images PNG pour des effets artistiques",
-            metaKeywords: "tonalité de couleur, teintage d'image, effets artistiques, superposition de couleur, filtre photo"
+            metaDescription: "Appliquer des tons et des teintes à vos images PNG pour des effets artistiques",
+            metaKeywords: "tonalité des couleurs, teinture d'image, effets artistiques, superposition de couleur, filtre photo"
         },
         addNoise: {
             title: "Ajouter du bruit à PNG",
@@ -96,46 +95,46 @@ export default {
             metaKeywords: "ajouter du bruit, grain de film, texture d'image, filtre artistique, effet photo vintage"
         },
         resize: {
-            title: "Redimensionner une image",
-            description: "Redimensionner des images à des dimensions précises tout en préservant la qualité",
+            title: "Redimensionner l'image",
+            description: "Redimensionner les images à des dimensions exactes tout en préservant la qualité",
             metaTitle: "Redimensionner des images | Outils d'image",
-            metaDescription: "Redimensionner facilement vos images à des dimensions précises tout en préservant la qualité",
-            metaKeywords: "redimensionner image, changer taille d'image, mettre à l'échelle une image, dimensions d'image, redimensionnement d'image"
+            metaDescription: "Redimensionner facilement vos images à des dimensions exactes tout en maintenant la qualité",
+            metaKeywords: "redimensionner l'image, changer la taille de l'image, échelle de l'image, dimensions de l'image, redimensionnement d'image"
         },
         rotate: {
-            title: "Rotation et retournement",
-            description: "Faire pivoter et retourner des images pour obtenir la bonne orientation",
-            metaTitle: "Rotation et retournement d'images | Outils d'image",
-            metaDescription: "Faire pivoter facilement des images à n'importe quel angle et les retourner horizontalement ou verticalement",
-            metaKeywords: "faire pivoter image, retourner image, orientation d'image, tourner image, retournement vertical"
+            title: "Pivoter et retourner",
+            description: "Pivoter et retourner les images pour obtenir la bonne orientation",
+            metaTitle: "Pivoter et retourner des images | Outils d'image",
+            metaDescription: "Pivoter facilement les images à n'importe quel angle et les retourner horizontalement ou verticalement",
+            metaKeywords: "pivoter l'image, retourner l'image, orientation de l'image, tourner l'image, retournement vertical"
         },
         crop: {
-            title: "Rogner une image",
-            description: "Rogner des images pour supprimer les zones indésirables et se concentrer sur le contenu important",
+            title: "Rogner l'image",
+            description: "Rogner les images pour supprimer les zones indésirables et mettre en valeur le contenu important",
             metaTitle: "Rogner des images | Outils d'image",
-            metaDescription: "Rogner des images pour supprimer les zones indésirables et améliorer la composition",
-            metaKeywords: "rogner image, découpage d'image, supprimer l'arrière-plan, composition d'image"
+            metaDescription: "Rogner les images pour supprimer les zones indésirables et améliorer la composition",
+            metaKeywords: "rogner l'image, découpage d'image, supprimer l'arrière-plan, composition d'image"
         },
         addText: {
-            title: "Ajouter du texte à une image",
+            title: "Ajouter du texte à l'image",
             description: "Ajouter du texte personnalisé, des légendes ou des filigranes à vos images",
-            metaTitle: "Ajouter du texte à des images | Outils d'image",
+            metaTitle: "Ajouter du texte aux images | Outils d'image",
             metaDescription: "Ajouter du texte personnalisé, des légendes et des filigranes à vos images avec des options de mise en forme simples",
-            metaKeywords: "ajouter texte à image, légende d'image, filigrane, superposition de texte, annotation d'image"
+            metaKeywords: "ajouter du texte à l'image, légende d'image, filigrane, superposition de texte, annotation d'image"
         },
         addBorder: {
             title: "Ajouter une bordure",
             description: "Ajouter des bordures personnalisées à vos images avec différents styles et couleurs",
-            metaTitle: "Ajouter une bordure à des images | Outils d'image",
+            metaTitle: "Ajouter une bordure aux images | Outils d'image",
             metaDescription: "Améliorer vos images avec des bordures personnalisées, des cadres et des effets",
-            metaKeywords: "ajouter bordure à image, cadre photo, encadrement d'image, style de bordure, amélioration d'image"
+            metaKeywords: "ajouter une bordure à l'image, cadre photo, encadrement d'image, style de bordure, amélioration d'image"
         },
         addWatermark: {
             title: "Ajouter un filigrane",
-            description: "Ajouter des filigranes texte ou image pour protéger vos photos",
-            metaTitle: "Ajouter un filigrane à des images | Outils d'image",
-            metaDescription: "Ajouter des filigranes texte ou image pour protéger et marquer vos images",
-            metaKeywords: "ajouter filigrane, protection d'image, branding, droits d'auteur, sécurité d'image"
+            description: "Ajouter des filigranes textuels ou d'image pour protéger vos photos",
+            metaTitle: "Ajouter un filigrane aux images | Outils d'image",
+            metaDescription: "Ajouter des filigranes textuels ou d'image pour protéger et marquer vos images",
+            metaKeywords: "ajouter un filigrane, protection d'image, marquage, droit d'auteur, sécurité d'image"
         }
     }
 }

@@ -67,7 +67,7 @@ export function PngToBase64Tool() {
             <div className="space-y-2">
               <h3 className="text-base font-medium">In HTML</h3>
               <div className="bg-muted p-3 rounded-md">
-                <code className="text-xs"><span className="text-pink-500">&lt;img</span> <span className="text-blue-500">src</span>=<span className="text-green-500">"data:image/png;base64,iVBORw0..."</span> <span className="text-pink-500">/&gt;</span></code>
+                <code className="text-xs"><span className="text-pink-500">&lt;img</span> <span className="text-blue-500">src</span>=<span className="text-green-500">"data:image/png;base64,iVBORw0...</span> <span className="text-pink-500">/&gt;</span></code>
               </div>
               <p className="text-xs text-muted-foreground">
                 Use the Base64 string in an img tag's src attribute.
@@ -77,7 +77,7 @@ export function PngToBase64Tool() {
               <h3 className="text-base font-medium">In CSS</h3>
               <div className="bg-muted p-3 rounded-md">
                 <code className="text-xs"><span className="text-pink-500">.element</span> {'{'}
-  <span className="text-blue-500">background-image</span>: <span className="text-green-500">url("data:image/png;base64,iVBORw0...")</span>;
+  <span className="text-blue-500">background-image</span>: <span className="text-green-500">url("data:image/png;base64,iVBORw0...)</span>;
 {'}'}</code>
               </div>
               <p className="text-xs text-muted-foreground">
@@ -88,7 +88,7 @@ export function PngToBase64Tool() {
               <h3 className="text-base font-medium">In JavaScript</h3>
               <div className="bg-muted p-3 rounded-md">
                 <code className="text-xs"><span className="text-blue-500">const</span> img = <span className="text-blue-500">new</span> Image();
-img.src = <span className="text-green-500">"data:image/png;base64,iVBORw0..."</span>;</code>
+img.src = <span className="text-green-500">"data:image/png;base64,iVBORw0...</span>;</code>
               </div>
               <p className="text-xs text-muted-foreground">
                 Create an image element with the Base64 data.

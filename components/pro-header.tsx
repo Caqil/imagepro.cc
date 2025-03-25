@@ -358,7 +358,7 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
             </div>
             <div className="flex items-center gap-2">
               <a
-                href="https://apps.apple.com/us/app/scanpro-pdf-scanner-app/id6743518395"
+                href="https://apps.apple.com/us/app/ImagePro-pdf-scanner-app/id6743518395"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-medium bg-black text-white px-2 py-1 rounded-md flex items-center"
@@ -366,7 +366,7 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
                 <Apple className="h-3 w-3 mr-1" /> iOS
               </a>
               <a
-                href="https://play.google.com/store/apps/details?id=com.scanpro.documentconverter"
+                href="https://play.google.com/store/apps/details?id=com.ImagePro.documentconverter"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-medium bg-primary-foreground text-primary px-2 py-1 rounded-md flex items-center"
@@ -413,7 +413,7 @@ export function ProHeader({ urlLanguage }: ProHeaderProps) {
             <LanguageLink href="/" className="flex items-center gap-2">
               <span className="font-bold text-xl flex items-center">
                 <SiteLogo />
-                <span className="text-red-500"></span> ScanPro
+                <span className="text-red-500"></span> ImagePro
               </span>
             </LanguageLink>
           </div>
