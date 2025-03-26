@@ -390,9 +390,24 @@ export default {
     removeBackground: {
       title: "Hapus Latar Belakang",
       description: "Hapus latar belakang dari foto dan gambar secara otomatis",
-      metaTitle: "Hapus Latar Belakang dari Gambar | Alat Gambar",
+      metaTitle: "Hapus Latar Belakang Gambar | Alat Gambar",
       metaDescription: "Hapus latar belakang dari foto dan gambar secara otomatis untuk hasil transparan",
-      metaKeywords: "hapus latar belakang, latar belakang transparan, penghapusan latar belakang, potong gambar"
+      metaKeywords: "hapus latar belakang, latar belakang transparan, penghapusan latar belakang, potong gambar",
+      toolTitle: "Penghapus Latar Belakang",
+      toolDescription: "Unggah gambar untuk menghapus latar belakangnya secara instan.",
+      howItWorksTitle: "Cara Kerjanya",
+      howItWorksDescription: "Alat kami menggunakan teknologi AI untuk mendeteksi dan menghapus latar belakang dari gambar Anda secara otomatis, meninggalkan subjek yang bersih pada latar belakang transparan.",
+      useCasesTitle: "Kasus Penggunaan Umum",
+      useCase1Title: "Fotografi Produk",
+      useCase1Description: "Buat gambar produk yang bersih untuk e-commerce.",
+      useCase2Title: "Foto Potret",
+      useCase2Description: "Hapus latar belakang dari potret untuk penggunaan profesional.",
+      useCase3Title: "Elemen Desain",
+      useCase3Description: "Isolasi objek untuk proyek desain grafis.",
+      tipsTitle: "Tips untuk Hasil Terbaik",
+      tip1: "Gunakan gambar dengan kontras jelas antara subjek dan latar belakang",
+      tip2: "Unggah gambar beresolusi tinggi untuk kualitas yang lebih baik",
+      tip3: "Bekerja paling baik dengan subjek yang jelas"
     },
     imagesToPdf: {
       title: "Gambar ke PDF",

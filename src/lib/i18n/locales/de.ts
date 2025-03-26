@@ -385,10 +385,25 @@ export default {
     },
     removeBackground: {
       title: "Hintergrund entfernen",
-      description: "Entferne automatisch Hintergründe aus Fotos und Bildern",
+      description: "Hintergründe automatisch aus Fotos und Bildern entfernen",
       metaTitle: "Bildhintergrund entfernen | Bildwerkzeuge",
-      metaDescription: "Entferne automatisch Hintergründe aus Fotos und Bildern für transparente Ergebnisse",
-      metaKeywords: "Hintergrund entfernen, transparenter Hintergrund, Hintergrundentfernung, Bild ausschneiden"
+      metaDescription: "Hintergründe automatisch aus Fotos und Bildern entfernen für transparente Ergebnisse",
+      metaKeywords: "Hintergrund entfernen, transparenter Hintergrund, Hintergrundentfernung, Bild ausschneiden",
+      toolTitle: "Hintergrundentferner",
+      toolDescription: "Lade ein Bild hoch, um den Hintergrund sofort zu entfernen.",
+      howItWorksTitle: "Wie es funktioniert",
+      howItWorksDescription: "Unser Tool verwendet KI-Technologie, um Hintergründe automatisch zu erkennen und aus deinen Bildern zu entfernen, sodass ein sauberes Motiv auf einem transparenten Hintergrund bleibt.",
+      useCasesTitle: "Häufige Anwendungsfälle",
+      useCase1Title: "Produktfotografie",
+      useCase1Description: "Erstelle saubere Produktbilder für den E-Commerce.",
+      useCase2Title: "Porträtfotos",
+      useCase2Description: "Entferne Hintergründe aus Porträts für professionelle Nutzung.",
+      useCase3Title: "Designelemente",
+      useCase3Description: "Isoliere Objekte für Grafikdesign-Projekte.",
+      tipsTitle: "Tipps für beste Ergebnisse",
+      tip1: "Verwende Bilder mit klarem Kontrast zwischen Motiv und Hintergrund",
+      tip2: "Lade hochauflösende Bilder für bessere Qualität hoch",
+      tip3: "Funktioniert am besten mit deutlich abgegrenzten Motiven"
     },
     imagesToPdf: {
       title: "Bilder zu PDF",

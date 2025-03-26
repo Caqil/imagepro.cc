@@ -34,6 +34,7 @@ interface ImageProcessorProps {
   renderOptions?: React.ReactNode;
   onImageLoaded?: (file: File) => void;
   previewRenderer?: (file: File, options: Record<string, any>) => Promise<string>;
+  
 }
 
 export function ImageProcessor({ 

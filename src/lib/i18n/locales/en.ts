@@ -392,7 +392,22 @@ export default {
       description: "Automatically remove backgrounds from photos and images",
       metaTitle: "Remove Image Background | Image Tools",
       metaDescription: "Automatically remove backgrounds from photos and images for transparent results",
-      metaKeywords: "remove background, transparent background, background removal, cut out image"
+      metaKeywords: "remove background, transparent background, background removal, cut out image",
+      toolTitle: "Background Remover",
+      toolDescription: "Upload an image to remove its background instantly.",
+      howItWorksTitle: "How It Works",
+      howItWorksDescription: "Our tool uses AI technology to automatically detect and remove backgrounds from your images, leaving you with a clean subject on a transparent background.",
+      useCasesTitle: "Common Use Cases",
+      useCase1Title: "Product Photography",
+      useCase1Description: "Create clean product images for e-commerce.",
+      useCase2Title: "Portrait Photos",
+      useCase2Description: "Remove backgrounds from portraits for professional use.",
+      useCase3Title: "Design Elements",
+      useCase3Description: "Isolate objects for graphic design projects.",
+      tipsTitle: "Tips for Best Results",
+      tip1: "Use images with clear contrast between subject and background",
+      tip2: "Upload high-resolution images for better quality",
+      tip3: "Works best with distinct subjects"
     },
     imagesToPdf: {
       title: "Images to PDF",

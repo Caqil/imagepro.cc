@@ -388,11 +388,26 @@ export default {
             metaKeywords: "redimensionnement par lot, multiples images, redimensionnement en masse, dimensions image"
         },
         removeBackground: {
-            title: "Supprimer le Fond",
-            description: "Supprimez automatiquement les fonds des photos et images",
-            metaTitle: "Supprimer le Fond des Images | Outils d'Image",
-            metaDescription: "Supprimez automatiquement les fonds des photos et images pour des résultats transparents",
-            metaKeywords: "supprimer fond, fond transparent, suppression fond, découper image"
+            title: "Supprimer l'arrière-plan",
+            description: "Supprimez automatiquement les arrière-plans des photos et images",
+            metaTitle: "Supprimer l'arrière-plan d'image | Outils d'image",
+            metaDescription: "Supprimez automatiquement les arrière-plans des photos et images pour des résultats transparents",
+            metaKeywords: "supprimer l'arrière-plan, arrière-plan transparent, suppression d'arrière-plan, découper une image",
+            toolTitle: "Suppresseur d'arrière-plan",
+            toolDescription: "Téléchargez une image pour supprimer son arrière-plan instantanément.",
+            howItWorksTitle: "Comment ça fonctionne",
+            howItWorksDescription: "Notre outil utilise la technologie de l'IA pour détecter et supprimer automatiquement les arrière-plans de vos images, vous laissant avec un sujet net sur un fond transparent.",
+            useCasesTitle: "Cas d'utilisation courants",
+            useCase1Title: "Photographie de produits",
+            useCase1Description: "Créez des images de produits nettes pour le commerce électronique.",
+            useCase2Title: "Photos de portraits",
+            useCase2Description: "Supprimez les arrière-plans des portraits pour un usage professionnel.",
+            useCase3Title: "Éléments de design",
+            useCase3Description: "Isolez des objets pour des projets de design graphique.",
+            tipsTitle: "Conseils pour de meilleurs résultats",
+            tip1: "Utilisez des images avec un contraste clair entre le sujet et l'arrière-plan",
+            tip2: "Téléchargez des images haute résolution pour une meilleure qualité",
+            tip3: "Fonctionne mieux avec des sujets distincts"
         },
         imagesToPdf: {
             title: "Images en PDF",

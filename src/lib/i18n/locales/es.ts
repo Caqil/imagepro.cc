@@ -388,11 +388,26 @@ export default {
       metaKeywords: "redimensionar por lotes, múltiples imágenes, redimensionamiento masivo, dimensiones de imagen"
     },
     removeBackground: {
-      title: "Eliminar Fondo",
+      title: "Eliminar fondo",
       description: "Elimina automáticamente fondos de fotos e imágenes",
-      metaTitle: "Eliminar Fondo de Imagen | Herramientas de Imagen",
-      metaDescription: "Elimina automáticamente fondos de fotos e imágenes para resultados transparentes",
-      metaKeywords: "eliminar fondo, fondo transparente, eliminación de fondo, recortar imagen"
+      metaTitle: "Eliminar fondo de imagen | Herramientas de imagen",
+      metaDescription: "Elimina automáticamente fondos de fotos e imágenes para obtener resultados transparentes",
+      metaKeywords: "eliminar fondo, fondo transparente, eliminación de fondo, recortar imagen",
+      toolTitle: "Eliminador de fondos",
+      toolDescription: "Sube una imagen para eliminar su fondo al instante.",
+      howItWorksTitle: "Cómo funciona",
+      howItWorksDescription: "Nuestra herramienta utiliza tecnología de IA para detectar y eliminar automáticamente los fondos de tus imágenes, dejando un sujeto limpio sobre un fondo transparente.",
+      useCasesTitle: "Casos de uso comunes",
+      useCase1Title: "Fotografía de productos",
+      useCase1Description: "Crea imágenes de productos limpias para comercio electrónico.",
+      useCase2Title: "Fotos de retratos",
+      useCase2Description: "Elimina fondos de retratos para uso profesional.",
+      useCase3Title: "Elementos de diseño",
+      useCase3Description: "Aísla objetos para proyectos de diseño gráfico.",
+      tipsTitle: "Consejos para mejores resultados",
+      tip1: "Usa imágenes con contraste claro entre el sujeto y el fondo",
+      tip2: "Sube imágenes de alta resolución para mejor calidad",
+      tip3: "Funciona mejor con sujetos distintivos"
     },
     imagesToPdf: {
       title: "Imágenes a PDF",
